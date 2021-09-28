@@ -28,20 +28,20 @@ export class AuthService {
   // logout and clear login user session
   logout() 
   {
-    localStorage.removeItem('authtoken');
+    // localStorage.removeItem('authtoken');
     this.route.navigate(['/auth/login']);
   }
 
   // set user session on login or refresh session
   setToken(token)
   {
-    localStorage.setItem('authtoken', token);
+    // localStorage.setItem('authtoken', token);
   }
 
   // fetch login user token for authenticate api
   getToken()
   { 
-    var token = localStorage.getItem('authtoken');
+    var token = 'dsdsd'//localStorage.getItem('authtoken');
     if(token)
     {
        return token;
