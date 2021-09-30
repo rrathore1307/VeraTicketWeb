@@ -9,6 +9,9 @@ import { PagesComponent } from './pages.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { RouterModule } from '@angular/router';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { ConfirmationService } from 'primeng/api';
+import { CommonService } from 'src/app/services';
 
 
 @NgModule({
@@ -17,7 +20,9 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     LayoutModule,
     RouterModule,
-    PagesRoutingModule
-  ]
+    PagesRoutingModule,
+    SharedModule
+  ],
+  providers:[ConfirmationService, CommonService]
 })
 export class PagesModule { }
