@@ -1,0 +1,46 @@
+.container-wrapper {
+    width: 100vw;
+    .container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        .grid {
+            padding: 0;
+            margin: 0;
+            max-width: 100%;
+        }
+        .auth-right-banner {
+            background-image: url("../images/auth-banner.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+            width: 55%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            .banner-text{
+                max-width: 60%;
+            }
+        }
+        .auth-left-section {
+            padding: 25px;
+            height: 100vh;
+            width: 45%;
+            .auth-form-section {
+                width: 100%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+                form {
+                    max-width: 390px;
+                    .form-title {
+                        margin-bottom: 40px;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}

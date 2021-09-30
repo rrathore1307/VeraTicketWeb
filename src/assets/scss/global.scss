@@ -1,0 +1,120 @@
+@font-face {
+    font-family: "Gilroy";
+    src: url("../fonts/Gilroy/Gilroy-Regular.ttf");
+}
+@font-face {
+    font-family: "Gilroy-Bold";
+    src: url("../fonts/Gilroy/Gilroy-Bold.ttf");
+}
+@font-face {
+    font-family: "Gilroy-Medium";
+    src: url("../fonts/Gilroy/Gilroy-Medium.ttf");
+}
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+}
+body {
+    margin: 0;
+    font-family: $font-family !important;
+    font-weight: 500 !important;
+    font-size: 16px !important;
+    line-height: 1 !important;
+    color: $white-color !important;
+    background-color: $black-color !important;
+    min-height: 100vh;
+    height: 100%;
+};
+p {
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: $line-height;
+  color: $white-color;
+  letter-spacing: 0.5px;
+};
+h1 {
+  font-family: $font-family-bold;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 45px;
+};
+h2 {
+  font-family: $font-family-bold;
+  font-weight: $font-weight;
+  font-size: 30px;
+};
+h3 {
+    font-family: $font-family-bold;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+}
+h4 {
+    font-family: $font-family-bold;
+    font-size: 20px;
+}
+h5 {
+    font-family: $font-family-md;
+    font-size: 18px;
+}
+h6 {
+  font-family: $font-family-md;
+  font-size: 16px;
+}
+button.p-button {
+    border-radius: $border-radius-100;
+    font-family: $font-family;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: center;
+    color: $white-color;
+    &:hover, &:active, &:focus {
+        box-shadow: unset;
+    }
+}
+button.p-button.p-primary {
+    background-color: $primary-color;
+    border-color: $primary-color;
+    &:hover, &:active, &:focus {
+        background-color: $primary-color;
+        border-color: $primary-color;
+    }
+}
+button.p-button.p-outline-secondary {
+    background-color: transparent;
+    border-color: $white-color;
+    &:hover, &:active, &:focus {
+        background-color: transparent;
+        border-color: $white-color;
+    }
+}
+label {
+    @include small-text;
+    text-align: left;
+    font-weight: 500;
+    opacity: 0.6;
+}
+input.p-inputtext {
+    display: inline-block;
+    width: 100%;
+    height: $input-height;
+    padding: 1rem;
+    @include medium-text;
+    font-weight: bold;
+    background-color: $dark-grey-color;
+    border-radius: $border-radius-100;
+    margin-bottom: 18px;
+}
+.p-field-checkbox .p-checkbox .p-checkbox-box {
+    width: 15px;
+    height: 15px;
+    opacity: 0.7;
+    border: 1px solid $white-color;
+    border-radius: 3px;
+    background-color: transparent;
+}
