@@ -8,6 +8,7 @@ import { ForgotPassComponent } from './forgot-pass/forgot-pass.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
+
 @NgModule({
   declarations: [LoginComponent, RegisterComponent, ForgotPassComponent],
   imports: [

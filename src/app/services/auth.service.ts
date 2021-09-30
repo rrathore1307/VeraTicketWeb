@@ -35,13 +35,13 @@ export class AuthService {
   // set user session on login or refresh session
   setToken(token)
   {
-    // localStorage.setItem('authtoken', token);
+    localStorage.setItem('authtoken', token);
   }
 
   // fetch login user token for authenticate api
   getToken()
   { 
-    var token = 'dsdsd'//localStorage.getItem('authtoken');
+    var token = 'dbdbd' //localStorage.getItem('authtoken');
     if(token)
     {
        return token;
@@ -59,7 +59,7 @@ export class AuthService {
       this.headers = new HttpHeaders({'Content-Type': 'application/json','Authorization':'Bearer '+token});
     }
     else{
-      this.headers = new HttpHeaders({'Content-Type': 'application/json'});
+      this.headers = new HttpHeaders({'Content-Type': 'application/json;'});
     }
   }
 

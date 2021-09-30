@@ -52,7 +52,8 @@
             <div class="form-group">
               <label for="inputEmail">Role</label>
               <select class="form" formControlName="role">
-                <option>Artist</option> 
+                <option>organiser</option> 
+                <option>guest</option> 
               </select>
               <div class="error" *ngIf="submited && getControls.email.errors">
                 <div *ngIf="getControls.role.errors.required">Role is required.</div>
