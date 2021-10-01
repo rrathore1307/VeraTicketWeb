@@ -1,0 +1,18 @@
+@mixin medium-text {
+    font-family: $font-family;
+    font-size: 14px;
+    line-height: 17px;
+    color: $white-color;
+}
+@mixin small-text {
+    font-family: $font-family;
+    font-size: 12px;
+    line-height: 15px;
+    color: $white-color;
+}
+@mixin remove-default-focus-effect {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: unset;
+    border-color: $grey-color;
+}
