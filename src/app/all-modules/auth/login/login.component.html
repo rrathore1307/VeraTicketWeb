@@ -3,21 +3,45 @@
     <div class="auth-left-section">
       <a><img src="../../../../assets/images/logo.png" alt=""></a>
       <div class="auth-form-section">
-        <form>
-          <h3 class="form-title">Login</h3>
+        <div>
+          <form>
+            <h3 class="form-title">Login</h3>
 
-          <label>Email</label>
-          <input type="text" pInputText />
+            <label>Email</label>
+            <input type="text" pInputText />
 
-          <label>Password</label>
-          <input type="password" pInputText />
+            <label>Password</label>
+            <input type="password" pInputText />
 
-          <div class="p-field-checkbox">
-            <p-checkbox binary="true" inputId="binary"></p-checkbox>
-            <label for="binary">Remember me</label>
+            <div class="auth-password-setting">
+              <div class="p-field-checkbox">
+                <p-checkbox binary="true" inputId="binary"></p-checkbox>
+                <label for="binary">Remember me</label>
+              </div>
+              <a href="#" class="forget-password">Forget Password</a>
+            </div>
+            
+            <button pButton type="submit" label="Login" class="p-primary submit-form-btn"></button>
+          </form>
+          <div class="or-seprator-line">
+            <hr/>
+            <span>or</span>
+            <hr/>
           </div>
-          
-        </form>
+          <div class="auth-social-account">
+            <p-button styleClass="p-button-outlined social-login-btn">
+              <img alt="logo" src="../../../../assets/images/google.png" style="width: 1.5rem"/>
+              <span class="btn-label">Login With Google</span>
+            </p-button>
+            <p-button styleClass="p-button-outlined social-login-btn">
+              <img alt="logo" src="../../../../assets/images/facebook_login.png " style="width: 1.5rem"/>
+              <span class="btn-label">Login With FB</span>
+            </p-button>
+          </div>
+          <div class="auth-redirect-action">
+            <p>Not registered yet? <a href="">Create an Account</a></p>
+          </div>
+        </div>
       </div>
     </div>
     <div class="auth-right-banner">

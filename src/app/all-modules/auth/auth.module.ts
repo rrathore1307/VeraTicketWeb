@@ -8,6 +8,7 @@ import { ForgotPassComponent } from './forgot-pass/forgot-pass.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {InputTextModule} from 'primeng/inputtext';
 import {CheckboxModule} from 'primeng/checkbox';
+import { ButtonModule } from 'primeng/button';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import {CheckboxModule} from 'primeng/checkbox';
     CommonModule,FormsModule,ReactiveFormsModule,
     AuthRoutingModule,
     InputTextModule,
-    CheckboxModule
+    CheckboxModule,
+    ButtonModule
   ]
 })
 export class AuthModule { }

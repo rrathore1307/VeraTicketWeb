@@ -36,8 +36,62 @@
                 form {
                     max-width: 390px;
                     .form-title {
-                        margin-bottom: 40px;
+                        margin-bottom: 30px;
                         text-align: center;
+                    }
+                    .auth-password-setting {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        .forget-password {
+                            @include medium-text;
+                            font-weight: 500;
+                            text-align: right;
+                            text-decoration: none;
+                        }
+                    }
+                }
+                .submit-form-btn {
+                    width: 100%;
+                    margin-top: 40px;
+                }
+                .or-seprator-line {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    opacity: 0.5;
+                    margin: 20px 0;
+                    hr {
+                        width: 100%;
+                        border: 1px solid $white-color;
+                        margin: 0 5px;
+                    }
+                }
+                .auth-social-account {
+                    text-align: center;
+                    p-button:not(:last-child) {
+                        margin-right: 20px;
+                    }
+                    .social-login-btn {
+                        background: $dark-grey-color;
+                        border-color: $dark-grey-color;
+                        border-radius: 10px;
+                        padding: 0.50rem 1.25rem;
+                        .btn-label {
+                            @include medium-text;
+                            font-weight: bold;
+                            padding-left: 10px;
+                        }
+                    }
+                }
+                .auth-redirect-action {
+                    @include medium-text;
+                    text-align: center;
+                    color: $light-grey-color;
+                    margin-top: 20px;
+                    a {
+                        color: $white-color;
+                        font-weight: bold;
                     }
                 }
             }

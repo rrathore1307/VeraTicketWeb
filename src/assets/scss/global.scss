@@ -110,11 +110,20 @@ input.p-inputtext {
     border-radius: $border-radius-100;
     margin-bottom: 18px;
 }
-.p-field-checkbox .p-checkbox .p-checkbox-box {
-    width: 15px;
-    height: 15px;
-    opacity: 0.7;
-    border: 1px solid $white-color;
-    border-radius: 3px;
-    background-color: transparent;
+.p-field-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .p-checkbox .p-checkbox-box {
+        width: 16px;
+        height: 16px;
+        opacity: 0.7;
+        border: 1px solid $white-color;
+        border-radius: 3px;
+        background-color: transparent;
+    }
+    label {
+        @include medium-text;
+        font-weight: 500;
+    }
 }
