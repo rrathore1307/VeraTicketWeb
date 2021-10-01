@@ -7,16 +7,17 @@ import { ConfirmationService } from 'primeng/api';
 import { CommonService } from '../services';
 
 
+
 @NgModule({
   declarations: [],
   imports: [
     ConfirmDialogModule,
     ButtonModule,
-    MessagesModule,
+    MessagesModule
   ],
   exports:  [ConfirmDialogModule,
     ButtonModule,
     MessagesModule],
-  
+  providers: [ConfirmationService],
 })
 export class SharedModule { }
