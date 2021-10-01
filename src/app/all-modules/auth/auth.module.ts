@@ -6,6 +6,9 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ForgotPassComponent } from './forgot-pass/forgot-pass.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {InputTextModule} from 'primeng/inputtext';
+import {CheckboxModule} from 'primeng/checkbox';
+import { ButtonModule } from 'primeng/button';
 
 
 
@@ -13,7 +16,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [LoginComponent, RegisterComponent, ForgotPassComponent],
   imports: [
     CommonModule,FormsModule,ReactiveFormsModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    InputTextModule,
+    CheckboxModule,
+    ButtonModule
   ]
 })
 export class AuthModule { }

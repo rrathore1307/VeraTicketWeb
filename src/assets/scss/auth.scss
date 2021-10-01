@@ -1,0 +1,100 @@
+.container-wrapper {
+    width: 100vw;
+    .container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        .grid {
+            padding: 0;
+            margin: 0;
+            max-width: 100%;
+        }
+        .auth-right-banner {
+            background-image: url("../images/auth-banner.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+            width: 55%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            .banner-text{
+                max-width: 60%;
+            }
+        }
+        .auth-left-section {
+            padding: 25px;
+            height: 100vh;
+            width: 45%;
+            .auth-form-section {
+                width: 100%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+                form {
+                    max-width: 390px;
+                    .form-title {
+                        margin-bottom: 30px;
+                        text-align: center;
+                    }
+                    .auth-password-setting {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        .forget-password {
+                            @include medium-text;
+                            font-weight: 500;
+                            text-align: right;
+                            text-decoration: none;
+                        }
+                    }
+                }
+                .submit-form-btn {
+                    width: 100%;
+                    margin-top: 40px;
+                }
+                .or-seprator-line {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    opacity: 0.5;
+                    margin: 20px 0;
+                    hr {
+                        width: 100%;
+                        border: 1px solid $white-color;
+                        margin: 0 5px;
+                    }
+                }
+                .auth-social-account {
+                    text-align: center;
+                    p-button:not(:last-child) {
+                        margin-right: 20px;
+                    }
+                    .social-login-btn {
+                        background: $dark-grey-color;
+                        border-color: $dark-grey-color;
+                        border-radius: 10px;
+                        padding: 0.50rem 1.25rem;
+                        .btn-label {
+                            @include medium-text;
+                            font-weight: bold;
+                            padding-left: 10px;
+                        }
+                    }
+                }
+                .auth-redirect-action {
+                    @include medium-text;
+                    text-align: center;
+                    color: $light-grey-color;
+                    margin-top: 20px;
+                    a {
+                        color: $white-color;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -13,7 +13,6 @@ export class ApiService {
   constructor(private http:HttpClient,) { }
   post(endpoint,req:any)
   {
-    debugger;
     let param = new HttpParams();
     param = req;
     return this.http.post(this.base_url+endpoint,param).pipe(

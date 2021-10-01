@@ -4,14 +4,19 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
-
+import {ButtonModule} from 'primeng/button';
+import {CascadeSelectModule} from 'primeng/cascadeselect';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [HeaderComponent, FooterComponent, SidebarComponent],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ButtonModule,
+    FormsModule,
+    CascadeSelectModule
   ],
   exports:[HeaderComponent, FooterComponent, SidebarComponent]
 })

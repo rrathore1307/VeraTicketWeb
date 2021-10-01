@@ -32,7 +32,7 @@ export class AlertsComponent implements OnInit {
 
   modalAction(id='openConfirmModal')
   {
-    document.getElementById(id).click();
+    // document.getElementById(id).click();
   }
 
   confirmDelete()
