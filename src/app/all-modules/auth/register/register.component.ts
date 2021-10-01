@@ -14,11 +14,13 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     const pattern = "/^[0-9]*$/";
     this.registerForm = this.fb.group({
-      fullName:[''],
+      userName:['',[Validators.required]],
+      firstName:['',[Validators.required]],
+      lastName:['',[Validators.required]],
       email:['',[Validators.required,Validators.email]],
-      phone:['',[Validators.required]],
-      password:['',],
-      confirmPass:['']
+      role:['',[Validators.required]],
+      password:['',]
+      // confirmPass:['']
     })
   }
   ConfirmPassErr='';
@@ -33,11 +35,12 @@ export class RegisterComponent implements OnInit {
     }
 
     // validate confirm pasword
-    if(this.registerForm.get('password').value !=this.registerForm.get('confirmPass').value)
-    {
-      this.ConfirmPassErr = "Password and confirm password should be same."
-      return false;
-    }
+    // if(this.registerForm.get('password').value !=this.registerForm.get('confirmPass').value)
+    // {
+    //   this.ConfirmPassErr = "Password and confirm password should be same."
+    //   return false;
+    // }
+    console.log(this.registerForm.value);
     this.auth.register(this.registerForm.value).subscribe((res:any)=>{
       console.log(res);
     })

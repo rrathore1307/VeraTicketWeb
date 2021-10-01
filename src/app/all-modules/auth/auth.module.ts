@@ -12,6 +12,7 @@ import { ButtonModule } from 'primeng/button';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 
+
 @NgModule({
   declarations: [LoginComponent, RegisterComponent, ForgotPassComponent, ResetPasswordComponent],
   imports: [

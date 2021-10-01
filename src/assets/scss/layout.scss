@@ -20,8 +20,12 @@ header {
                 .p-cascadeselect-trigger-icon.pi.pi-chevron-down {
                     color: #003880;
                 }
+                &.p-focus,
+                &:hover {
+                    @include remove-default-focus-effect;
+                }
             }
-            button:not(:last-child) {
+            .p-button:not(:last-child) {
                 margin-right: 20px;
             }
         }

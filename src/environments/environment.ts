@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  base_url:'https://reqres.in/api/',
+  base_url:'http://8f91-2409-4063-6c8d-cbc7-e18f-5eec-8dd0-dfc7.ngrok.io/',
   app_url:''
 };
 
