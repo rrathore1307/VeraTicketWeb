@@ -17,6 +17,18 @@
     font: inherit;
     vertical-align: baseline;
 }
+*::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+*::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: $dark-grey-color;
+}
+*::-webkit-scrollbar-thumb {
+    background: $grey-color;
+    border-radius: 10px;
+}
 body {
     margin: 0;
     font-family: $font-family !important;
@@ -107,8 +119,16 @@ input.p-inputtext {
     @include medium-text;
     font-weight: bold;
     background-color: $dark-grey-color;
+    border-color: $dark-grey-color;
     border-radius: $border-radius-100;
-    margin-bottom: 18px;
+    margin-bottom: 15px;
+    &:enabled:hover,
+    &:enabled:focus {
+        outline: 0 none;
+        outline-offset: 0;
+        box-shadow: unset;
+        border-color: $grey-color;
+    }
 }
 .p-field-checkbox {
     display: flex;
