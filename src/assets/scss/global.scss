@@ -107,8 +107,9 @@ input.p-inputtext {
     @include medium-text;
     font-weight: bold;
     background-color: $dark-grey-color;
+    border-color: $dark-grey-color;
     border-radius: $border-radius-100;
-    margin-bottom: 18px;
+    margin-bottom: 15px;
 }
 .p-field-checkbox {
     display: flex;

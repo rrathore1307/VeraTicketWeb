@@ -9,10 +9,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {InputTextModule} from 'primeng/inputtext';
 import {CheckboxModule} from 'primeng/checkbox';
 import { ButtonModule } from 'primeng/button';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, ForgotPassComponent],
+  declarations: [LoginComponent, RegisterComponent, ForgotPassComponent, ResetPasswordComponent],
   imports: [
     CommonModule,FormsModule,ReactiveFormsModule,
     AuthRoutingModule,
