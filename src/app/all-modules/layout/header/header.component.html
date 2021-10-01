@@ -4,8 +4,8 @@
     <div class="header-right">
       <p-cascadeSelect [(ngModel)]="selectedCity1" [options]="countries" optionLabel="cname" optionGroupLabel="name" 
       [optionGroupChildren]="['states', 'cities']" [style]="{'minWidth': '14rem'}"></p-cascadeSelect>
-      <a pButton  routerLink="/auth/register" label="Sign Up" class="p-primary"></a>
-      <a pButton  routerLink="/auth/login" label="Sign In" class="p-outline-secondary"></a>
+      <a pButton routerLink="/auth/register" class="p-primary">Sign Up</a>
+      <a pButton routerLink="/auth/login" class="p-outline-secondary">Sign In</a>
     </div>
   </div>
 </header>

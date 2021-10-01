@@ -10,3 +10,9 @@
     line-height: 15px;
     color: $white-color;
 }
+@mixin remove-default-focus-effect {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: unset;
+    border-color: $grey-color;
+}
