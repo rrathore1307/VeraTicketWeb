@@ -10,12 +10,19 @@
             padding: 0;
             margin: 0;
             max-width: 100%;
+            .grid-input-left {
+                padding-bottom: 0;
+                padding-left: 0;
+            }
+            .grid-input-right {
+                padding-bottom: 0;
+                padding-right: 0;
+            }
         }
         .auth-right-banner {
             background-image: url("../images/auth-banner.png");
             background-repeat: no-repeat;
             background-size: cover;
-            height: 100vh;
             width: 55%;
             display: inline-flex;
             align-items: center;
