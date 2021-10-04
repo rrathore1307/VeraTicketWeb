@@ -26,14 +26,14 @@ export class AppInterceptor implements HttpInterceptor {
             return next.handle(request).pipe(
               tap(
                 event => {
-                  if (event instanceof HttpResponse) { 
+                  if (event instanceof HttpResponse) {
                     console.log('responce',event);               
                     console.log('response body',event.body);               
                           if(event.body)
                           {
-                            if(event.body.token)
+                            if(event.body.data && event.body.data.accessToken)
                             {
-                              this.auth.setToken(event.body.token);
+                              this.auth.setToken(event.body.data.accessToken);
                               this.data.setUserDetail(event.body);
                             }
                           }
@@ -48,7 +48,7 @@ export class AppInterceptor implements HttpInterceptor {
                       }
                       this.router.navigateByUrl('/auth/login');
                     }
-                    return EMPTY;
+                    // return EMPTY;
                     return throwError(error);
                   }
                 }

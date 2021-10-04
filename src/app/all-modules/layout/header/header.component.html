@@ -5,7 +5,8 @@
       <p-cascadeSelect [(ngModel)]="selectedCity1" [options]="countries" optionLabel="cname" optionGroupLabel="name" 
       [optionGroupChildren]="['states', 'cities']" [style]="{'minWidth': '14rem'}"></p-cascadeSelect>
       <a pButton routerLink="/auth/register" class="p-primary">Sign Up</a>
-      <a pButton routerLink="/auth/login" class="p-outline-secondary">Sign In</a>
+      <a pButton routerLink="/auth/login" class="p-outline-secondary" *ngIf="!isUserLoggedIn">Sign In</a>
+      <button pButton routerLink="/auth/login" class="p-outline-secondary" *ngIf="isUserLoggedIn">Logout</button>
     </div>
   </div>
 </header>

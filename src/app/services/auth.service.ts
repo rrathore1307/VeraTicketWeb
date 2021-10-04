@@ -3,7 +3,7 @@ import { Endpoints } from 'src/app/config';
 import { Router } from '@angular/router';
 import { ApiService } from './api.service';
 import { HttpHeaders } from '@angular/common/http';
-
+import User from '../models/user'
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +14,7 @@ export class AuthService {
   constructor(private route:Router,private api:ApiService){ }
   
   // register user to server 
-  register(data)
+  register(data:User)
   {
     return this.api.post(this.endpoint.register,data)
   }
@@ -41,7 +41,7 @@ export class AuthService {
   // fetch login user token for authenticate api
   getToken()
   { 
-    var token = 'dbdbd' //localStorage.getItem('authtoken');
+    var token = localStorage.getItem('authtoken');
     if(token)
     {
        return token;
@@ -67,6 +67,7 @@ export class AuthService {
   checkLogin()
   {
     let token = this.getToken();
+    console.log('aleready logged in');
     return (token)?true:false;
   }
   

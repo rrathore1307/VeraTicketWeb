@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services';
-
+import { ToastrService } from 'ngx-toastr';
+import User from 'src/app/models/user';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -10,19 +11,20 @@ import { AuthService } from 'src/app/services';
 export class RegisterComponent implements OnInit {
   submited: boolean;
   registerForm: FormGroup;
-  constructor(private fb: FormBuilder, private auth: AuthService) { }
+  constructor(private fb: FormBuilder, private auth: AuthService, private tostr: ToastrService) { }
   ngOnInit(): void {
-    const pattern = "/^[0-9]*$/";
+    // const pattern = "/^[0-9]*$/";
     this.registerForm = this.fb.group({
-      // userName:['',[Validators.required]],
+      userName: ['', [Validators.required]],
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      role: ['organizer', [Validators.required]],
+      role: ['ORGANIZER', [Validators.required]],
       password: ['', [Validators.required]],
       confirmPass: ['']
     })
   }
+  
   ConfirmPassErr = '';
 
   submit() {
@@ -38,8 +40,8 @@ export class RegisterComponent implements OnInit {
       this.ConfirmPassErr = "Password and confirm password should be same."
       return false;
     }
-
     const {
+      userName,
       firstName,
       lastName,
       email,
@@ -48,6 +50,7 @@ export class RegisterComponent implements OnInit {
     } = this.registerForm.value;
 
     let formData = {
+      userName: userName,
       firstName: firstName,
       lastName: lastName,
       email: email,
@@ -58,6 +61,11 @@ export class RegisterComponent implements OnInit {
     console.log(formData);
     this.auth.register(formData).subscribe((res: any) => {
       console.log(res);
+      if (res.message === 'Success') {
+        this.tostr.success('User registered successfully', 'Success');
+      } else {
+        this.tostr.error('Something went wrong', 'Error');
+      }
     })
   }
 

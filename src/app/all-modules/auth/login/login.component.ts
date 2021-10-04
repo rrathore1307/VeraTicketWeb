@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services';
 import { ToastrService } from 'ngx-toastr';
+import { Alert } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-login',
@@ -37,21 +38,26 @@ export class LoginComponent implements OnInit {
     }
  
     this.auth.signIn(this.loginForm.value).subscribe((res:any)=>{
-      this.processing =false;
-      if(res.token)
+      this.processing = false;
+      let resbody = res.body;
+      console.log(res.body);
+      if(resbody.data.accessToken)
       {
         this.toastr.success('Logged in successfully!', 'Success');
         this.router.navigate(['/']);
+      }
+      else if(resbody.data == null){
+        this.toastr.error('something went wrong!', 'Error');
       }
     },(error)=>{
       this.processing =false;
       this.loginErr = error.error?.error;
       console.log(' loginErr',this.loginErr)
       alert(this.loginErr.message);
-      this.toastr.success(this.loginErr.message, 'Alert');
-    })
+      this.toastr.error(this.loginErr.message, 'Alert');
+    }
  
-  }
+    )}
 
   get getControls() {
     return this.loginForm.controls;

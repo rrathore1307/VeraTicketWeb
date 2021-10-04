@@ -9,7 +9,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import {CheckboxModule} from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
 import { CascadeSelectModule } from 'primeng/cascadeselect';
-
+import { ToastrModule } from 'ngx-toastr';
 let imports = [
   ConfirmDialogModule,
   MessagesModule,
@@ -17,7 +17,8 @@ let imports = [
   CheckboxModule,
   CommonModule,
   FormsModule,
-  CascadeSelectModule
+  CascadeSelectModule,
+  ToastrModule
 ]
 if(isPlatformBrowser) {
   imports.push(ButtonModule)

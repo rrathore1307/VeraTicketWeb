@@ -4,31 +4,30 @@
       <a><img src="../../../../assets/images/logo.png" alt=""></a>
       <div class="auth-form-section">
         <div class="form-wrapper">
+          <h3 class="form-title">Sign Up as</h3>
           <form [formGroup]="registerForm" (ngSubmit)="submit()">
-            <h3 class="form-title">Sign Up</h3>
-
-            <!-- <div class="input-group">
+            <div class="input-group">
               <label>Username</label>
               <input type="text" pInputText formControlName="userName" placeholder="Enter Username" />
-              <div class="error" *ngIf="submited && getControls.userName.errors">
-                <div *ngIf="getControls.userName.errors.required">Username is required.</div>
+              <div class="error-wrapper" *ngIf="submited && getControls.userName.errors">
+                <div class="error" *ngIf="getControls.userName.errors.required">Username is required.</div>
               </div>
-            </div> -->
+            </div>
 
             <div class="grid">
               <div class="col-12 md:col-6 grid-input-left">
                 <div class="input-group">
                   <input type="text" pInputText formControlName="firstName" placeholder="Enter First Name" />
-                  <div class="error" *ngIf="submited && getControls.firstName.errors">
-                    <div *ngIf="getControls.firstName.errors.required">First name is required.</div>
+                  <div class="error-wrapper" *ngIf="submited && getControls.firstName.errors">
+                    <div *ngIf="getControls.firstName.errors.required" class="error">First name is required.</div>
                   </div>
                 </div>
               </div>
               <div class="col-12 md:col-6 grid-input-right">
                 <div class="input-group">
                   <input type="text" pInputText formControlName="lastName" placeholder="Enter Last Name" />
-                  <div class="error" *ngIf="submited && getControls.lastName.errors">
-                    <div *ngIf="getControls.lastName.errors.required">Last name is required.</div>
+                  <div class="error-wrapper" *ngIf="submited && getControls.lastName.errors">
+                    <div *ngIf="getControls.lastName.errors.required" class="error">Last name is required.</div>
                   </div>
                 </div>
               </div>
@@ -37,25 +36,27 @@
             <div class="input-group">
               <label>Email</label>
               <input type="text" pInputText formControlName="email" placeholder="Enter Email" />
-              <div class="error" *ngIf="submited && getControls.email.errors">
-                <div *ngIf="getControls.email.errors.required">Email is required.</div>
-                <div *ngIf="getControls.email.errors.email">Enter valid email address.</div>
+              <div class="error-wrapper" *ngIf="submited && getControls.email.errors">
+                <div *ngIf="getControls.email.errors.required" class="error">Email is required.</div>
+                <div *ngIf="getControls.email.errors.email" class="error">Enter valid email address.</div>
               </div>
             </div>
 
             <div class="input-group">
               <label>Password</label>
               <input type="password" formControlName="password" pInputText placeholder="Password" />
-              <div class="error" *ngIf="submited && getControls.password.errors">
-                <div *ngIf="getControls.password.errors.required">Confirm Password is required.</div>
+              <div class="error-wrapper" *ngIf="submited && getControls.password.errors">
+                <div *ngIf="getControls.password.errors.required" class="error">Password is required.</div>
               </div>
             </div>
 
             <div class="input-group">
               <label>Confirm Password</label>
               <input type="password" formControlName="confirmPass" pInputText placeholder="Confirm Password" />
-              <div class="error" *ngIf="submited && ConfirmPassErr && !getControls.confirmPass.errors">
-                {{ConfirmPassErr}}.</div>
+              <div class="error-wrapper">
+                <div class="error" *ngIf="submited && ConfirmPassErr && !getControls.confirmPass.errors">
+                  {{ConfirmPassErr}}.</div>
+              </div>
             </div>
 
             <button pButton type="submit" label="Sign Up" class="p-primary submit-form-btn"></button>
