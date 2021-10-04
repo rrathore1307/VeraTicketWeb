@@ -9,6 +9,8 @@ import {InputTextModule} from 'primeng/inputtext';
 import {CheckboxModule} from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
 import { CascadeSelectModule } from 'primeng/cascadeselect';
+import {DropdownModule} from 'primeng/dropdown';
+import {CalendarModule} from 'primeng/calendar';
 
 let imports = [
   ConfirmDialogModule,
@@ -17,7 +19,9 @@ let imports = [
   CheckboxModule,
   CommonModule,
   FormsModule,
-  CascadeSelectModule
+  CascadeSelectModule,
+  DropdownModule,
+  CalendarModule
 ]
 if(isPlatformBrowser) {
   imports.push(ButtonModule)

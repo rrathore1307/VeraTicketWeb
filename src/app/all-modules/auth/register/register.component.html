@@ -1,5 +1,5 @@
-<div class="container-wrapper">
-  <div class="container">
+<div class="auth-content-wrapper">
+  <div class="auth-content">
     <div class="auth-left-section">
       <a><img src="../../../../assets/images/logo.png" alt=""></a>
       <div class="auth-form-section">
@@ -19,16 +19,16 @@
               <div class="col-12 md:col-6 grid-input-left">
                 <div class="input-group">
                   <input type="text" pInputText formControlName="firstName" placeholder="Enter First Name" />
-                  <div class="error" *ngIf="submited && getControls.firstName.errors">
-                    <div *ngIf="getControls.firstName.errors.required">First name is required.</div>
+                  <div class="error-wrapper" *ngIf="submited && getControls.firstName.errors">
+                    <p *ngIf="getControls.firstName.errors.required" class="error">First name is required.</p>
                   </div>
                 </div>
               </div>
               <div class="col-12 md:col-6 grid-input-right">
                 <div class="input-group">
                   <input type="text" pInputText formControlName="lastName" placeholder="Enter Last Name" />
-                  <div class="error" *ngIf="submited && getControls.lastName.errors">
-                    <div *ngIf="getControls.lastName.errors.required">Last name is required.</div>
+                  <div class="error-wrapper" *ngIf="submited && getControls.lastName.errors">
+                    <p *ngIf="getControls.lastName.errors.required" class="error">Last name is required.</p>
                   </div>
                 </div>
               </div>
@@ -37,25 +37,25 @@
             <div class="input-group">
               <label>Email</label>
               <input type="text" pInputText formControlName="email" placeholder="Enter Email" />
-              <div class="error" *ngIf="submited && getControls.email.errors">
-                <div *ngIf="getControls.email.errors.required">Email is required.</div>
-                <div *ngIf="getControls.email.errors.email">Enter valid email address.</div>
+              <div class="error-wrapper" *ngIf="submited && getControls.email.errors">
+                <p *ngIf="getControls.email.errors.required" class="error">Email is required.</p>
+                <p *ngIf="getControls.email.errors.email" class="error">Enter valid email address.</p>
               </div>
             </div>
 
             <div class="input-group">
               <label>Password</label>
               <input type="password" formControlName="password" pInputText placeholder="Password" />
-              <div class="error" *ngIf="submited && getControls.password.errors">
-                <div *ngIf="getControls.password.errors.required">Confirm Password is required.</div>
+              <div class="error-wrapper" *ngIf="submited && getControls.password.errors">
+                <p *ngIf="getControls.password.errors.required" class="error">Password is required.</p>
               </div>
             </div>
 
             <div class="input-group">
               <label>Confirm Password</label>
               <input type="password" formControlName="confirmPass" pInputText placeholder="Confirm Password" />
-              <div class="error" *ngIf="submited && ConfirmPassErr && !getControls.confirmPass.errors">
-                {{ConfirmPassErr}}.</div>
+              <p class="error" *ngIf="submited && ConfirmPassErr && !getControls.confirmPass.errors">
+                {{ConfirmPassErr}}.</p>
             </div>
 
             <button pButton type="submit" label="Sign Up" class="p-primary submit-form-btn"></button>

@@ -1,8 +1,8 @@
-.container-wrapper {
+.auth-content-wrapper {
     max-width: 100vw;
     width: 100%;
     height: 100%;
-    .container {
+    .auth-content {
         width: 100%;
         height: 100%;
         display: flex;
@@ -74,9 +74,8 @@
                     opacity: 0.5;
                     margin: 20px 0;
                     hr {
-                        width: 100%;
-                        border: 1px solid $white-color;
                         margin: 0 5px;
+                        border: 1px solid $white-color;
                     }
                 }
                 .auth-social-account {

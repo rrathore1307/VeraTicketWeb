@@ -1,5 +1,5 @@
-<div class="container-wrapper">
-  <div class="container">
+<div class="auth-content-wrapper">
+  <div class="auth-content">
     <div class="auth-left-section">
       <a><img src="../../../../assets/images/logo.png" alt=""></a>
       <div class="auth-form-section">
@@ -11,8 +11,8 @@
               <label>Email</label>
               <input type="text" pInputText formControlName="email" placeholder="Email"/>
               <div class="error-wrapper" *ngIf="submited && getControls.email.errors">
-                <div *ngIf="getControls.email.errors.required" class="error">Email is required.</div>
-                <div *ngIf="getControls.email.errors.email">Enter valid email address.</div>
+                <p *ngIf="getControls.email.errors.required" class="error">Email is required.</p>
+                <p *ngIf="getControls.email.errors.email"  class="error">Enter valid email address.</p>
               </div>
             </div>
 
@@ -20,7 +20,7 @@
               <label>Password</label>
               <input type="password" pInputText formControlName="password" placeholder="Password"/>
               <div class="error-wrapper" *ngIf="submited && getControls.password.errors">
-                <div *ngIf="getControls.password.errors.required" class="error">Password is required.</div>
+                <p *ngIf="getControls.password.errors.required" class="error">Password is required.</p>
               </div>
             </div>
 
