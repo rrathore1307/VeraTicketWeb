@@ -17,7 +17,6 @@ import { CommonService } from 'src/app/services';
 @NgModule({
   declarations: [HomeComponent, ChangePasswordComponent, PagesComponent, AboutUsComponent, ContactUsComponent],
   imports: [
-    CommonModule,
     LayoutModule,
     RouterModule,
     PagesRoutingModule,

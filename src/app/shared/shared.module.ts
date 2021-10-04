@@ -5,7 +5,10 @@ import { MessagesModule } from 'primeng/messages';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { CommonService } from '../services';
-
+import {InputTextModule} from 'primeng/inputtext';
+import {CheckboxModule} from 'primeng/checkbox';
+import { FormsModule } from '@angular/forms';
+import { CascadeSelectModule } from 'primeng/cascadeselect';
 
 
 @NgModule({
@@ -13,11 +16,22 @@ import { CommonService } from '../services';
   imports: [
     ConfirmDialogModule,
     ButtonModule,
-    MessagesModule
+    MessagesModule,
+    InputTextModule,
+    CheckboxModule,
+    CommonModule,
+    FormsModule,
+    CascadeSelectModule
   ],
   exports:  [ConfirmDialogModule,
     ButtonModule,
-    MessagesModule],
+    MessagesModule,
+    InputTextModule,
+    CheckboxModule,
+    CommonModule,
+    FormsModule,
+    CascadeSelectModule
+  ],
   providers: [ConfirmationService],
 })
 export class SharedModule { }
