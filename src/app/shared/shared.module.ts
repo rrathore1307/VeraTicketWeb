@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { MessagesModule } from 'primeng/messages';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
@@ -10,28 +10,23 @@ import {CheckboxModule} from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
 import { CascadeSelectModule } from 'primeng/cascadeselect';
 
+let imports = [
+  ConfirmDialogModule,
+  MessagesModule,
+  InputTextModule,
+  CheckboxModule,
+  CommonModule,
+  FormsModule,
+  CascadeSelectModule
+]
+if(isPlatformBrowser) {
+  imports.push(ButtonModule)
+}
 
 @NgModule({
   declarations: [],
-  imports: [
-    ConfirmDialogModule,
-    ButtonModule,
-    MessagesModule,
-    InputTextModule,
-    CheckboxModule,
-    CommonModule,
-    FormsModule,
-    CascadeSelectModule
-  ],
-  exports:  [ConfirmDialogModule,
-    ButtonModule,
-    MessagesModule,
-    InputTextModule,
-    CheckboxModule,
-    CommonModule,
-    FormsModule,
-    CascadeSelectModule
-  ],
+  imports: imports,
+  exports:  imports,
   providers: [ConfirmationService],
 })
 export class SharedModule { }
