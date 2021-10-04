@@ -12,7 +12,7 @@
               <input type="text" pInputText formControlName="email" placeholder="Email"/>
               <div class="error-wrapper" *ngIf="submited && getControls.email.errors">
                 <div *ngIf="getControls.email.errors.required" class="error">Email is required.</div>
-                <div *ngIf="getControls.email.errors.email">Enter valid email address.</div>
+                <div *ngIf="getControls.email.errors.email" class="error">Enter valid email address.</div>
               </div>
             </div>
 
@@ -29,7 +29,7 @@
                 <p-checkbox binary="true" inputId="binary"></p-checkbox>
                 <label for="binary">Remember me</label>
               </div>
-              <a href="#" class="forget-password">Forget Password</a>
+              <a routerLink="/auth/reset-password" class="forget-password">Forget Password</a>
             </div>
 
             <button pButton type="submit" label="Login" class="p-primary submit-form-btn"></button>

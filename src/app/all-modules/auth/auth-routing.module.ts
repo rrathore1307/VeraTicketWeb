@@ -10,7 +10,7 @@ const routes: Routes = [
   {path:'login',component:LoginComponent,data: { variableName: 'variableValue' },pathMatch: 'full',},
   {path:'login:id',component:LoginComponent},
   {path:'register',component:RegisterComponent},
-  {path:'forgot-password',component:ForgotPassComponent},
+  {path:'change-password',component:ForgotPassComponent},
   {path:'reset-password',component:ResetPasswordComponent},
 ];
 
