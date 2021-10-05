@@ -5,11 +5,12 @@ import { MessagesModule } from 'primeng/messages';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { CommonService } from '../services';
-import {InputTextModule} from 'primeng/inputtext';
-import {CheckboxModule} from 'primeng/checkbox';
+import { InputTextModule } from 'primeng/inputtext';
+import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
-import {DropdownModule} from 'primeng/dropdown';
-import {CalendarModule} from 'primeng/calendar';
+import { DropdownModule } from 'primeng/dropdown';
+import { CalendarModule } from 'primeng/calendar';
+import { TabViewModule } from 'primeng/tabview';
 
 let imports = [
   ConfirmDialogModule,
@@ -20,6 +21,7 @@ let imports = [
   FormsModule,
   DropdownModule,
   CalendarModule,
+  TabViewModule
 ]
 if(isPlatformBrowser) {
   imports.push(ButtonModule)

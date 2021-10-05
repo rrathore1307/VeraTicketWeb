@@ -245,5 +245,86 @@ footer {
                 }
             }
         }
+        .about-section {
+            .about-header-section {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 20px;
+            }
+            .medium-text {
+                opacity: 0.6;
+                margin-bottom: 1rem;
+            }
+            .host-name {
+                opacity: 1;
+                margin-bottom: 0;
+                span {
+                    font-weight: 600;
+                }
+            }
+        }
+        .img-gallery-section {
+            .featured-img-banner-section {
+                width: 100%;
+                display: inline-block;
+                section {
+                    background-image: url(../images/feature-img-banner.png);
+                    width: 100%;
+                    display: inline-block;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: 50%;
+                    text-align: center;
+                    padding: 95px 0;
+                    position: relative;
+                    border-radius: 15px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 6px;
+                    &::before{
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        background: linear-gradient(360deg, #000000 -14.63%, rgba(0, 0, 0, 0) 72.65%);
+                    }
+                    .change-img {
+                        background: rgba(255, 255, 255, 0.15);
+                        border: 1.5px dashed #FFFFFF;
+                        box-sizing: border-box;
+                        backdrop-filter: blur(5px);
+                        border-radius: 100px;
+                        max-width: 200px;
+                        width: 100%;
+                        height: $input-height;
+                        position: relative;
+                        text-align: center;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        input {
+                            opacity: 0;
+                            position: absolute;
+                            left: 0;
+                            right: 0;
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+            .gallery-section {
+                padding: 20px 0;
+                .gallery-header-section {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+            }
+        }
     }
 }
