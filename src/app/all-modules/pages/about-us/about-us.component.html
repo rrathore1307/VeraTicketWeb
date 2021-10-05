@@ -3,23 +3,45 @@
         <div class="main-header">
             <a href="#"><img src="../../../../assets/images/logo-with-name.png" alt="" class="header-logo"></a>
             <div class="header-right">
-              <!-- <p-cascadeSelect [(ngModel)]="selectedCity1" [options]="countries" optionLabel="cname" optionGroupLabel="name" 
-              [optionGroupChildren]="['states', 'cities']" [style]="{'minWidth': '14rem'}"></p-cascadeSelect> -->
-              <a pButton routerLink="/auth/register" class="p-primary">Sign Up</a>
-              <a pButton routerLink="/auth/login" class="p-outline-secondary">Sign In</a>
+                <div>
+                    <p-dropdown class="p-ng-dropdown" [filter]="false" filterBy="name" [showClear]="false" placeholder="Select a Country">
+                        <ng-template pTemplate="selectedItem">
+                            <div class="country-item country-item-value">
+                                <img src="" />
+                                <div>India</div>
+                            </div>
+                        </ng-template>
+                        <ng-template let-country pTemplate="item">
+                            <div class="country-item">
+                                <img src="" />
+                                <div>India</div>
+                            </div>
+                        </ng-template>
+                    </p-dropdown>
+                </div>
+                <div class="notification-bell">
+                    <img src="../../../../assets/images/notification-bell.png" alt="">
+                    <span class="notification-count small-text">12</span>
+                </div>
+                <div>
+                    <a class="p-button p-primary"><i class="pi pi-plus mr-2"></i> Create Ticket</a>
+                </div>
+                <div class="profile-detail">
+                    <span class="profile-img"><img src="../../../../assets/images/user-face.png" alt=""></span>
+                    <p class="small-text">Pixelz Warrios</p>
+                </div>
             </div>
         </div>
-        <hr />
         <div class="category-filter">
             <ul class="category-nav">
-                <li class="nav-item"><a pButton class="nav-link p-secondary" label="Events"></a></li>
-                <li class="nav-item"><a pButton class="nav-link p-secondary active" label="Activites"></a></li>
-                <li class="nav-item"><a pButton class="nav-link p-secondary" label="Sports"></a></li>
-                <li class="nav-item"><a pButton class="nav-link p-secondary" label="Plays"></a></li>
-                <li class="nav-item"><a pButton class="nav-link p-secondary" label="Food & Drink"></a></li>
-                <li class="nav-item"><a pButton class="nav-link p-secondary" label="Dance"></a></li>
-                <li class="nav-item"><a pButton class="nav-link p-secondary" label="Music"></a></li>
-                <li class="nav-item"><a pButton class="nav-link p-secondary" label="Marketplace"></a></li>
+                <li class="nav-item"><a class="nav-link p-button p-secondary">Events</a></li>
+                <li class="nav-item"><a class="nav-link p-button p-secondary active">Activites</a></li>
+                <li class="nav-item"><a class="nav-link p-button p-secondary">Sports</a></li>
+                <li class="nav-item"><a class="nav-link p-button p-secondary">Plays</a></li>
+                <li class="nav-item"><a class="nav-link p-button p-secondary">Food & Drink</a></li>
+                <li class="nav-item"><a class="nav-link p-button p-secondary">Dance</a></li>
+                <li class="nav-item"><a class="nav-link p-button p-secondary">Music</a></li>
+                <li class="nav-item"><a class="nav-link p-button p-secondary">Marketplace</a></li>
             </ul>
         </div>
     </div>
@@ -44,117 +66,118 @@
                 <div class="col-9">
                     <div class="section">
                         <div class="profile-section">
-                            <div class="profile-header-section">
-                                <div>
-                                    <div class="profile-img-circle">
-                                        <span><img src="../../../../assets/images/user-profile.png" alt=""></span>
-                                        <label for="profile-img" class="edit-img">
-                                            <input id="profile_img" type="file" accept="image/*">
-                                            <img src="../../../../assets/images/camera.svg" alt="">
-                                        </label>
+                            <form>
+                                <div class="profile-header-section">
+                                    <div>
+                                        <div class="profile-img-circle">
+                                            <span><img src="../../../../assets/images/user-profile.png" alt=""></span>
+                                            <label for="profile-img" class="edit-img">
+                                                <input id="profile_img" type="file" accept="image/*">
+                                                <img src="../../../../assets/images/camera.svg" alt="">
+                                            </label>
+                                        </div>
+                                        <h5 class="user-name">Pixelz Warrios</h5>
                                     </div>
-                                    <h5 class="user-name">Pixelz Warrios</h5>
+                                    
+                                    <p-button class="p-primary" label="Save"></p-button>
                                 </div>
-                                
-                                <button pButton class="p-primary" label="Save"></button>
-                            </div>
-                            <hr />
-                            <h5>Basic Detail</h5>
-                            <div class="grid">
-                                <div class="input-group col-3">
-                                    <label>Your Name</label>
-                                    <input type="text" pInputText placeholder="Your name"/>
-                                    <div class="error-wrapper">
-                                        <p class="error"></p>
+                                <h5>Basic Detail</h5>
+                                <div class="grid">
+                                    <div class="input-group col-3">
+                                        <label>Your Name</label>
+                                        <input type="text" pInputText placeholder="Your name"/>
+                                        <div class="error-wrapper">
+                                            <p class="error"></p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="input-group col-3">
-                                    <label>Username</label>
-                                    <input type="text" pInputText placeholder="Username"/>
-                                    <div class="error-wrapper">
-                                        <p class="error"></p>
+                                    <div class="input-group col-3">
+                                        <label>Username</label>
+                                        <input type="text" pInputText placeholder="Username"/>
+                                        <div class="error-wrapper">
+                                            <p class="error"></p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="input-group col-3">
-                                    <label>Date of Birth</label>
-                                    <p-calendar dateFormat="mm-dd-yy" [showIcon]="true" placeholder="DOB"></p-calendar>
-                                    <div class="error-wrapper">
-                                        <p class="error"></p>
+                                    <div class="input-group col-3">
+                                        <label>Date of Birth</label>
+                                        <p-calendar dateFormat="mm-dd-yy" [showIcon]="true" placeholder="DOB" class="p-ng-datepicker"></p-calendar>
+                                        <div class="error-wrapper">
+                                            <p class="error"></p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="input-group col-3">
-                                    <label>Gender</label>
-                                    <p-dropdown placeholder="Select a Gender" [showClear]="false"></p-dropdown>
-                                    <div class="error-wrapper">
-                                        <p class="error"></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <h5>Contact Detail</h5>
-                            <div class="grid">
-                                <div class="input-group col-6">
-                                    <label>Email Address</label>
-                                    <input type="text" pInputText placeholder="Email Address"/>
-                                    <div class="error-wrapper">
-                                        <p class="error"></p>
+                                    <div class="input-group col-3">
+                                        <label>Gender</label>
+                                        <p-dropdown class="p-ng-dropdown" placeholder="Select a Gender" [showClear]="false"></p-dropdown>
+                                        <div class="error-wrapper">
+                                            <p class="error"></p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="input-group col-6">
-                                    <label>Phone Number</label>
-                                    <div class="dropdown-input-field">
-                                        <p-dropdown placeholder="" [showClear]="false"></p-dropdown>
-                                        <input type="text" pInputText placeholder="Phone Number"/>
+                                <h5>Contact Detail</h5>
+                                <div class="grid">
+                                    <div class="input-group col-6">
+                                        <label>Email Address</label>
+                                        <input type="text" pInputText placeholder="Email Address"/>
+                                        <div class="error-wrapper">
+                                            <p class="error"></p>
+                                        </div>
                                     </div>
-                                    <div class="error-wrapper">
-                                        <p class="error"></p>
+                                    <div class="input-group col-6">
+                                        <label>Phone Number</label>
+                                        <div class="dropdown-input-field">
+                                            <p-dropdown class="p-ng-dropdown" placeholder="" [showClear]="false"></p-dropdown>
+                                            <input type="text" pInputText placeholder="Phone Number"/>
+                                        </div>
+                                        <div class="error-wrapper">
+                                            <p class="error"></p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="input-group col-3">
-                                    <label>Country</label>
-                                    <p-dropdown placeholder="Select a Country" [showClear]="false"></p-dropdown>
-                                    <div class="error-wrapper">
-                                        <p class="error"></p>
+                                    <div class="input-group col-3">
+                                        <label>Country</label>
+                                        <p-dropdown class="p-ng-dropdown" class="p-ng-dropdown" placeholder="Select a Country" [showClear]="false"></p-dropdown>
+                                        <div class="error-wrapper">
+                                            <p class="error"></p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="input-group col-3">
-                                    <label>State</label>
-                                    <p-dropdown placeholder="Select a State" [showClear]="false"></p-dropdown>
-                                    <div class="error-wrapper">
-                                        <p class="error"></p>
+                                    <div class="input-group col-3">
+                                        <label>State</label>
+                                        <p-dropdown class="p-ng-dropdown" placeholder="Select a State" [showClear]="false"></p-dropdown>
+                                        <div class="error-wrapper">
+                                            <p class="error"></p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="input-group col-3">
-                                    <label>City</label>
-                                    <p-dropdown placeholder="Select a City" [showClear]="false"></p-dropdown>
-                                    <div class="error-wrapper">
-                                        <p class="error"></p>
+                                    <div class="input-group col-3">
+                                        <label>City</label>
+                                        <p-dropdown class="p-ng-dropdown" placeholder="Select a City" [showClear]="false"></p-dropdown>
+                                        <div class="error-wrapper">
+                                            <p class="error"></p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="input-group col-3">
-                                    <label>Postcode</label>
-                                    <input type="text" pInputText placeholder="Postcode" />
-                                    <div class="error-wrapper">
-                                        <p class="error"></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <h5>Change Password</h5>
-                            <div class="grid">
-                                <div class="input-group col-6">
-                                    <label>Password</label>
-                                    <input type="password" pInputText placeholder="Password"/>
-                                    <div class="error-wrapper">
-                                        <p class="error"></p>
-                                    </div>
-                                </div>
-                                <div class="input-group col-6">
-                                    <label>Confirm Password</label>
-                                    <input type="password" pInputText placeholder="Confirm Password"/>
-                                    <div class="error-wrapper">
-                                        <p class="error"></p>
+                                    <div class="input-group col-3">
+                                        <label>Postcode</label>
+                                        <input type="text" pInputText placeholder="Postcode" />
+                                        <div class="error-wrapper">
+                                            <p class="error"></p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                                <h5>Change Password</h5>
+                                <div class="grid">
+                                    <div class="input-group col-6">
+                                        <label>Password</label>
+                                        <input type="password" pInputText placeholder="Password"/>
+                                        <div class="error-wrapper">
+                                            <p class="error"></p>
+                                        </div>
+                                    </div>
+                                    <div class="input-group col-6">
+                                        <label>Confirm Password</label>
+                                        <input type="password" pInputText placeholder="Confirm Password"/>
+                                        <div class="error-wrapper">
+                                            <p class="error"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

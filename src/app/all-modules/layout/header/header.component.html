@@ -2,10 +2,22 @@
   <div class="container main-header">
     <a href=""><img src="../../../../assets/images/logo-with-name.png" alt=""></a>
     <div class="header-right">
-      <p-cascadeSelect [(ngModel)]="selectedCity1" [options]="countries" optionLabel="cname" optionGroupLabel="name" 
-      [optionGroupChildren]="['states', 'cities']" [style]="{'minWidth': '14rem'}"></p-cascadeSelect>
-      <a pButton routerLink="/auth/register" class="p-primary">Sign Up</a>
-      <a pButton routerLink="/auth/login" class="p-outline-secondary">Sign In</a>
+      <p-dropdown class="p-ng-dropdown" [filter]="false" filterBy="name" [showClear]="false" placeholder="Select a Country">
+        <ng-template pTemplate="selectedItem">
+            <div class="country-item country-item-value">
+                <img src="" />
+                <div>India</div>
+            </div>
+        </ng-template>
+        <ng-template let-country pTemplate="item">
+            <div class="country-item">
+                <img src="" />
+                <div>India</div>
+            </div>
+        </ng-template>
+      </p-dropdown>
+      <a routerLink="/auth/register" class="p-button p-primary">Sign Up</a>
+      <a routerLink="/auth/login" class="p-button p-outline-secondary">Sign In</a>
     </div>
   </div>
 </header>

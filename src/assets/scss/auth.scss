@@ -80,7 +80,7 @@
                 }
                 .auth-social-account {
                     text-align: center;
-                    p-button:not(:last-child) {
+                    .p-button:not(:last-child) {
                         margin-right: 20px;
                     }
                     .social-login-btn {

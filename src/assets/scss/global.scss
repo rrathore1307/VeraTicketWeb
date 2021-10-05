@@ -103,6 +103,10 @@ h6 {
   font-size: 16px;
   margin-bottom: 0.5rem;
 }
+.small-text {
+    @include small-text;
+    font-weight: bold;
+}
 hr {
     width: 100%;
     border: 1px solid $grey-color;
@@ -123,7 +127,8 @@ a.p-button {
         // opacity: 0.8;
     }
 }
-.p-button.p-primary {
+.p-button.p-primary,
+.p-primary .p-button {
     background-color: $primary-color;
     border-color: $primary-color;
     &:enabled:hover, &:enabled:active, &:focus {
@@ -131,7 +136,8 @@ a.p-button {
         border-color: $primary-color;
     }
 }
-.p-button.p-secondary {
+.p-button.p-secondary,
+.p-secondary .p-button {
     background-color: $grey-color;
     border-color: $grey-color;
     &:enabled:hover, &:enabled:active, &:focus {
@@ -139,7 +145,8 @@ a.p-button {
         border-color: $grey-color;
     }
 }
-.p-button.p-outline-secondary {
+.p-button.p-outline-secondary,
+.p-outline-secondary .p-button {
     background-color: transparent;
     border-color: $white-color;
     &:hover, &:active, &:focus {
@@ -178,7 +185,7 @@ input.p-inputtext {
         @include remove-default-focus-effect;
     }
 }
-.p-dropdown.p-component { 
+.p-ng-dropdown .p-dropdown.p-component { 
     width: 100%;
     height: $input-height;
     background-color: $dark-grey-color;
@@ -196,13 +203,16 @@ input.p-inputtext {
         @include medium-text;
         font-weight: 500;
         padding: 0;
+        &.p-placeholder {
+            color: $input-placeholder-color;
+        }
     }
     .p-dropdown-trigger-icon {
         font-size: 12px;
         color: $white-color;
     }
 }
-.p-calendar {
+.p-ng-datepicker .p-calendar {
     .p-datepicker-trigger {
         background-color: $dark-grey-color;
         border-color: $dark-grey-color;
@@ -241,7 +251,7 @@ input.p-inputtext {
     width: 100%;
     float: left;
     position: relative;
-    .p-dropdown {
+    .p-ng-dropdown .p-dropdown {
         position: absolute;
         width: 75px;
         height: 40px;
