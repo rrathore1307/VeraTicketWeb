@@ -1,11 +1,21 @@
-<div class="container-wrapper">
-  <div class="container">
+<div class="auth-content-wrapper">
+  <div class="auth-content">
     <div class="auth-left-section">
       <a><img src="../../../../assets/images/logo.png" alt=""></a>
       <div class="auth-form-section">
         <div class="form-wrapper">
-          <h3 class="form-title">Sign Up as</h3>
+          <h3 class="form-title">Sign Up </h3>
           <form [formGroup]="registerForm" (ngSubmit)="submit()">
+
+            <div class="input-group">
+              <label>Select Role</label>
+              <p-dropdown [options]="userRoles" class="p-ng-dropdown" formControlName="role" optionLabel="name" optionValue="code" placeholder="Select role">
+              </p-dropdown>
+              <div class="error-wrapper" *ngIf="submited && getControls.role.errors">
+                <div class="error" *ngIf="getControls.role.errors.required">Username is required.</div>
+              </div>
+            </div>
+
             <div class="input-group">
               <label>Username</label>
               <input type="text" pInputText formControlName="userName" placeholder="Enter Username" />

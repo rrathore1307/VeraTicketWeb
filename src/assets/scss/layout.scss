@@ -1,32 +1,89 @@
 header {
     width: 100vw;
-    height: $header-height;
+    height: auto;
     background-color: $dark-grey-color;
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 100%;
+    .container {
+        padding: 0;
+    }
     .main-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: $max-content-size;
+        padding: 10px 0;
+        .header-logo {
+            max-height: 40px;
+            width: auto;
+        }
         .header-right {
             display: flex;
             align-items: center;
-            .p-cascadeselect.p-component {
-                background: $white-color;
-                border-radius: $border-radius-100;
-                margin-right: 40px;
-                .p-cascadeselect-trigger-icon.pi.pi-chevron-down {
-                    color: #003880;
-                }
-                &.p-focus,
-                &:hover {
-                    @include remove-default-focus-effect;
+            justify-content: space-around;
+            & > div:not(:last-child) {
+                margin-right: 20px;
+            }
+            .p-ng-dropdown .p-dropdown.p-component  {
+                background-color: $light-black-color;
+                border-color: $light-black-color;
+                height: 40px;
+                &:enabled:hover,
+                &:enabled:focus,
+                &:not(.p-disabled):hover {
+                    border-color: $grey-color;
                 }
             }
-            .p-button:not(:last-child) {
-                margin-right: 20px;
+            .notification-bell {
+                background: linear-gradient(148.64deg, #FF2500 -6.43%, #0E0E0E 117.39%);
+                mix-blend-mode: normal;
+                opacity: 0.8;
+                box-shadow: 0px 4.54988px 30.9392px rgba(0, 84, 183, 0.3);
+                border-radius: 16px;
+                padding: 8px 12px;
+                color: $white-color;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                .notification-count {
+                    text-align: right;
+                    margin-left: 6px;
+                }
+            }
+            .profile-detail {
+                display: flex;
+                align-items: center;
+                .profile-img {
+                    border-radius: 4px;
+                    display: inline-flex;
+                    align-items: center;
+                    margin-right: 10px;
+                    img {
+                        width: 35px;
+                        height: 35px;
+                    }
+                }
+            }
+        }
+    }
+    .category-filter {
+        border-top: 1px solid $grey-color;
+        padding: 15px 0;
+        .category-nav {
+            display: flex;
+            flex-wrap: wrap;
+            .nav-item {
+                margin-right: 5px;
+                .nav-link {
+                    @include medium-text;
+                    font-weight: 500;
+                    opacity: 0.8;
+                    &.active, &:active {
+                        background-color: $primary-color;
+                        border-color: $primary-color;
+                    }
+                }
             }
         }
     }
@@ -39,8 +96,8 @@ footer {
     justify-content: center;
     align-items: center;
     bottom: 0;
+    max-width: 100%;
     .main-footer {
-        width: $max-content-size;
         h4 {
             text-transform: uppercase;
             margin-bottom: 20px;
@@ -65,10 +122,126 @@ footer {
             width: 100%;
             text-align: left;
             ul {
-                list-style-type: none;
-                text-align: left;
                 li {
                     margin-bottom: 15px;
+                }
+            }
+        }
+    }
+}
+.page-content-wrapper {
+    width: 100%;
+    max-width: 100%;
+    .section {
+        background-color: $dark-grey-color;
+        border-radius: 20px;
+        padding: 20px;
+        .side-nav {
+            .nav {
+                .nav-item {
+                    padding: 15px;
+                    .nav-link {
+                        display: inline-flex;
+                        align-items: center;
+                        @include medium-text;
+                        font-weight: bold;
+                        letter-spacing: 1px;
+                        text-decoration: none;
+                        img {
+                            width: 14px;
+                            height: 14px;
+                            margin-right: 25px;
+                        }
+                    }
+                    &.active, &:active {
+                        border-radius: 10px;
+                        background-color: $light-black-color;
+                    }
+                }
+            }
+        }
+        .profile-section {
+            .profile-header-section {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding-bottom: 20px;
+                margin-bottom: 20px;
+                border-bottom: 1px solid $grey-color;
+                & > div {
+                    display: flex;
+                    align-items: center;
+                    .user-name {
+                        margin-left: 20px;
+                        margin-bottom: 0;
+                    }
+                    .profile-img-circle {
+                        position: relative;
+                        width: 80px;
+                        height: 80px;
+                        text-align: center;
+                        border-radius: 100%;
+                        span {
+                            border-radius: 100%;
+                            overflow: hidden;
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                            img {
+                                max-width: 100%;
+                                height: 100%;
+                            }
+                        }
+                        .edit-img {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            flex-shrink: 0;
+                            width: 24px;
+                            height: 24px;
+                            background-color: $primary-color;
+                            border-radius: 100%;
+                            position: absolute;
+                            bottom: 0;
+                            right: 0;
+                            opacity: 1;
+                            img {
+                                vertical-align: middle;
+                                border-style: none;
+                            }
+                            input {
+                                opacity: 0;
+                                position: absolute;
+                                left: 0;
+                                right: 0;
+                                width: 24px;
+                                border-radius: 100%;
+                                z-index: 10;
+                            }
+                        }
+                    }
+                }
+            }
+            .grid {
+                padding: 0;
+                margin: 0;
+                max-width: 100%;
+                & > [class*=col] {
+                    padding: 0;
+                    &:not(:last-child){
+                        padding-right: 0.5rem;
+                    }
+                }
+            }
+            input.p-inputtext,
+            .p-ng-dropdown .p-dropdown.p-component,
+            .p-datepicker-trigger {
+                background-color: $light-black-color;
+                border-color: $light-black-color;
+                &:enabled:hover,
+                &:enabled:focus,
+                &:not(.p-disabled):hover {
+                    border-color: $grey-color;
                 }
             }
         }

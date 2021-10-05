@@ -1,12 +1,74 @@
-<header>
-  <div class="main-header">
+<header *ngIf="!isUserLoggedIn">
+  <div class="container main-header">
     <a href=""><img src="../../../../assets/images/logo-with-name.png" alt=""></a>
     <div class="header-right">
-      <p-cascadeSelect [(ngModel)]="selectedCity1" [options]="countries" optionLabel="cname" optionGroupLabel="name" 
-      [optionGroupChildren]="['states', 'cities']" [style]="{'minWidth': '14rem'}"></p-cascadeSelect>
-      <a pButton routerLink="/auth/register" class="p-primary">Sign Up</a>
-      <a pButton routerLink="/auth/login" class="p-outline-secondary" *ngIf="!isUserLoggedIn">Sign In</a>
-      <button pButton routerLink="/auth/login" class="p-outline-secondary" *ngIf="isUserLoggedIn">Logout</button>
+      <p-dropdown class="p-ng-dropdown" [filter]="false" filterBy="name" [showClear]="false"
+        placeholder="Select a Country">
+        <ng-template pTemplate="selectedItem">
+          <div class="country-item country-item-value">
+            <img src="" />
+            <div>India</div>
+          </div>
+        </ng-template>
+        <ng-template let-country pTemplate="item">
+          <div class="country-item">
+            <img src="" />
+            <div>India</div>
+          </div>
+        </ng-template>
+      </p-dropdown>
+      <a routerLink="/auth/register" class="p-button p-primary">Sign Up</a>
+      <a routerLink="/auth/login" class="p-button p-outline-secondary">Sign In</a>
     </div>
+  </div>
+</header>
+
+<!-- user loggedIn header -->
+<header *ngIf="isUserLoggedIn">
+  <div class="container">
+      <div class="main-header">
+          <a href="#"><img src="../../../../assets/images/logo-with-name.png" alt="" class="header-logo"></a>
+          <div class="header-right">
+              <div>
+                  <p-dropdown class="p-ng-dropdown" [filter]="false" filterBy="name" [showClear]="false" placeholder="Select a Country">
+                      <ng-template pTemplate="selectedItem">
+                          <div class="country-item country-item-value">
+                              <img src="" />
+                              <div>India</div>
+                          </div>
+                      </ng-template>
+                      <ng-template let-country pTemplate="item">
+                          <div class="country-item">
+                              <img src="" />
+                              <div>India</div>
+                          </div>
+                      </ng-template>
+                  </p-dropdown>
+              </div>
+              <div class="notification-bell">
+                  <img src="../../../../assets/images/notification-bell.png" alt="">
+                  <span class="notification-count small-text">12</span>
+              </div>
+              <div>
+                  <a class="p-button p-primary"><i class="pi pi-plus mr-2"></i> Create Ticket</a>
+              </div>
+              <div class="profile-detail">
+                  <span class="profile-img"><img src="../../../../assets/images/user-face.png" alt=""></span>
+                  <p class="small-text" (click)="logout()">Pixelz Warrios</p>
+              </div>
+          </div>
+      </div>
+      <div class="category-filter">
+          <ul class="category-nav">
+              <li class="nav-item"><a class="nav-link p-button p-secondary">Events</a></li>
+              <li class="nav-item"><a class="nav-link p-button p-secondary active">Activites</a></li>
+              <li class="nav-item"><a class="nav-link p-button p-secondary">Sports</a></li>
+              <li class="nav-item"><a class="nav-link p-button p-secondary">Plays</a></li>
+              <li class="nav-item"><a class="nav-link p-button p-secondary">Food & Drink</a></li>
+              <li class="nav-item"><a class="nav-link p-button p-secondary">Dance</a></li>
+              <li class="nav-item"><a class="nav-link p-button p-secondary">Music</a></li>
+              <li class="nav-item"><a class="nav-link p-button p-secondary">Marketplace</a></li>
+          </ul>
+      </div>
   </div>
 </header>

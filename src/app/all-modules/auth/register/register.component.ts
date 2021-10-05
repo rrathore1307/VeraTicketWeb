@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services';
 import { ToastrService } from 'ngx-toastr';
 import User from 'src/app/models/user';
+import {Role} from 'src/app/models/role';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -11,7 +13,14 @@ import User from 'src/app/models/user';
 export class RegisterComponent implements OnInit {
   submited: boolean;
   registerForm: FormGroup;
-  constructor(private fb: FormBuilder, private auth: AuthService, private tostr: ToastrService) { }
+  userRoles: Role[];
+
+  constructor(private fb: FormBuilder, private auth: AuthService, private tostr: ToastrService) {
+    this.userRoles = [
+      {name: 'Organizer',code:'ORGANIZER'},
+      {name: 'Guest',code:'GUEST'},
+    ];
+   }
   ngOnInit(): void {
     // const pattern = "/^[0-9]*$/";
     this.registerForm = this.fb.group({
@@ -19,7 +28,7 @@ export class RegisterComponent implements OnInit {
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      role: ['ORGANIZER', [Validators.required]],
+      role: ['', [Validators.required]],
       password: ['', [Validators.required]],
       confirmPass: ['']
     })
@@ -59,14 +68,14 @@ export class RegisterComponent implements OnInit {
     }
 
     console.log(formData);
-    this.auth.register(formData).subscribe((res: any) => {
-      console.log(res);
-      if (res.message === 'Success') {
-        this.tostr.success('User registered successfully', 'Success');
-      } else {
-        this.tostr.error('Something went wrong', 'Error');
-      }
-    })
+    // this.auth.register(formData).subscribe((res: any) => {
+    //   console.log(res);
+    //   if (res.message === 'Success') {
+    //     this.tostr.success('User registered successfully', 'Success');
+    //   } else {
+    //     this.tostr.error('Something went wrong', 'Error');
+    //   }
+    // })
   }
 
   get getControls() {

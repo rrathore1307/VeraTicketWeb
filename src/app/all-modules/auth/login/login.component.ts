@@ -38,15 +38,15 @@ export class LoginComponent implements OnInit {
     }
  
     this.auth.signIn(this.loginForm.value).subscribe((res:any)=>{
+      debugger;
       this.processing = false;
-      let resbody = res.body;
-      console.log(res.body);
-      if(resbody.data.accessToken)
+      console.log(res.data.accessToken);
+      if(res.data && res.data.accessToken)
       {
         this.toastr.success('Logged in successfully!', 'Success');
-        this.router.navigate(['/']);
+        this.router.navigate(['/user/profile']);
       }
-      else if(resbody.data == null){
+      else if(!res.data || res.data == null){
         this.toastr.error('something went wrong!', 'Error');
       }
     },(error)=>{

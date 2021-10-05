@@ -16,3 +16,8 @@
     box-shadow: unset;
     border-color: $grey-color;
 }
+
+@mixin unorder-list-style {
+    list-style-type: none;
+    text-align: left;
+}

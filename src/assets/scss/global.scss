@@ -46,6 +46,18 @@ body {
     min-height: 100vh;
     height: 100%;
 };
+.container {
+    margin: 0 auto;
+    padding: 30px 0;
+    width: 100%;
+    max-width: $max-content-size;
+    @media (max-width: 768px) {
+        max-width: 100%;
+    }
+}
+ul {
+    @include unorder-list-style;
+}
 p {
   font-family: $font-family;
   font-weight: $font-weight;
@@ -59,29 +71,45 @@ h1 {
   font-weight: bold;
   font-size: 36px;
   line-height: 45px;
+  margin-bottom: 1rem;
 };
 h2 {
   font-family: $font-family-bold;
   font-weight: $font-weight;
   font-size: 30px;
+  margin-bottom: 1rem;
 };
 h3 {
     font-family: $font-family-bold;
     font-weight: bold;
     font-size: 24px;
     line-height: 30px;
+    margin-bottom: 0.75rem;
 }
 h4 {
     font-family: $font-family-bold;
     font-size: 20px;
+    line-height: 26px;
+    margin-bottom: 0.75rem;
 }
 h5 {
     font-family: $font-family-md;
     font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 0.75rem;
 }
 h6 {
   font-family: $font-family-md;
   font-size: 16px;
+  margin-bottom: 0.5rem;
+}
+.small-text {
+    @include small-text;
+    font-weight: bold;
+}
+hr {
+    width: 100%;
+    border: 1px solid $grey-color;
 }
 button.p-button,
 a.p-button {
@@ -99,15 +127,26 @@ a.p-button {
         // opacity: 0.8;
     }
 }
-.p-button.p-primary {
+.p-button.p-primary,
+.p-primary .p-button {
     background-color: $primary-color;
     border-color: $primary-color;
-    &:hover, &:active, &:focus {
+    &:enabled:hover, &:enabled:active, &:focus {
         background-color: $primary-color;
         border-color: $primary-color;
     }
 }
-.p-button.p-outline-secondary {
+.p-button.p-secondary,
+.p-secondary .p-button {
+    background-color: $grey-color;
+    border-color: $grey-color;
+    &:enabled:hover, &:enabled:active, &:focus {
+        background-color: $grey-color;
+        border-color: $grey-color;
+    }
+}
+.p-button.p-outline-secondary,
+.p-outline-secondary .p-button {
     background-color: transparent;
     border-color: $white-color;
     &:hover, &:active, &:focus {
@@ -122,12 +161,10 @@ label {
     opacity: 0.6;
     line-height: 22px;
 }
-.error-wrapper {
-    .error {
-        @include small-text;
-        color: $error-color;
-        padding: 4px 0 0 4px;
-    }
+.error {
+    @include small-text;
+    color: $error-color;
+    padding: 4px 0 0 4px;
 }
 .input-group {
     margin-bottom: 1rem;
@@ -137,15 +174,48 @@ input.p-inputtext {
     display: inline-block;
     width: 100%;
     height: $input-height;
-    padding: 1rem;
+    padding: 0.75rem 1rem;
     @include medium-text;
-    font-weight: bold;
+    font-weight: 500;
     background-color: $dark-grey-color;
     border-color: $dark-grey-color;
     border-radius: $border-radius-100;
     &:enabled:hover,
     &:enabled:focus {
         @include remove-default-focus-effect;
+    }
+}
+.p-ng-dropdown .p-dropdown.p-component { 
+    width: 100%;
+    height: $input-height;
+    background-color: $dark-grey-color;
+    border-color: $dark-grey-color;
+    border-radius: $border-radius-100;
+    padding: 0.75rem 0.20rem 0.75rem 1rem;
+    @include medium-text;
+    font-weight: 500;
+    &:enabled:hover,
+    &:enabled:focus,
+    &:not(.p-disabled).p-focus {
+        @include remove-default-focus-effect;
+    }
+    .p-dropdown-label {
+        @include medium-text;
+        font-weight: 500;
+        padding: 0;
+        &.p-placeholder {
+            color: $input-placeholder-color;
+        }
+    }
+    .p-dropdown-trigger-icon {
+        font-size: 12px;
+        color: $white-color;
+    }
+}
+.p-ng-datepicker .p-calendar {
+    .p-datepicker-trigger {
+        background-color: $dark-grey-color;
+        border-color: $dark-grey-color;
     }
 }
 .p-field-checkbox {
@@ -175,5 +245,24 @@ input.p-inputtext {
     label {
         @include medium-text;
         font-weight: 500;
+    }
+}
+.dropdown-input-field {
+    width: 100%;
+    float: left;
+    position: relative;
+    .p-ng-dropdown .p-dropdown {
+        position: absolute;
+        width: 75px;
+        height: 40px;
+        margin: 1px;
+        &:enabled:hover,
+        &:enabled:focus,
+        &:not(.p-disabled):hover {
+            border-color: transparent !important;
+        }
+    }
+    .p-inputtext {
+        padding-left: 78px;
     }
 }

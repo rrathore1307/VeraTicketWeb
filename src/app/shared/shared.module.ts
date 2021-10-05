@@ -4,12 +4,15 @@ import { ButtonModule } from 'primeng/button';
 import { MessagesModule } from 'primeng/messages';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
-import { CommonService } from '../services';
+// import { CommonService } from '../services';
 import {InputTextModule} from 'primeng/inputtext';
 import {CheckboxModule} from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
-import { CascadeSelectModule } from 'primeng/cascadeselect';
+import {DropdownModule} from 'primeng/dropdown';
+import {CalendarModule} from 'primeng/calendar';
 import { ToastrModule } from 'ngx-toastr';
+
+
 let imports = [
   ConfirmDialogModule,
   MessagesModule,
@@ -17,7 +20,8 @@ let imports = [
   CheckboxModule,
   CommonModule,
   FormsModule,
-  CascadeSelectModule,
+  DropdownModule,
+  CalendarModule,
   ToastrModule
 ]
 if(isPlatformBrowser) {
