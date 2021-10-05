@@ -18,7 +18,11 @@ export class LoginComponent implements OnInit {
   loginErr:any;
   
   constructor(private fb:FormBuilder,private router:Router,private auth:AuthService,private toastr: ToastrService,
-    private commonService: CommonService) { }
+    private commonService: CommonService) {
+      // if(this.auth.getToken()){
+      //   this.router.navigate(['/']);
+      // }
+     }
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       email:['',[Validators.required,Validators.email]],
@@ -27,7 +31,7 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
-    this.commonService.showSuccess('success', '', 'sss')
+    // this.commonService.showSuccess('success', '', 'sss')
     this.processing= true;
     this.submited = true;
     this.loginErr=null;
@@ -40,42 +44,21 @@ export class LoginComponent implements OnInit {
  
     this.auth.signIn(this.loginForm.value).subscribe(async(response:any)=>{
       this.processing = false;
-      // let resbody = res;
       try{
         this.commonService.handleApiResponse(response).then(res=>{
           console.log(res);
-          // this.router.navigate(['/']);
+          this.router.navigate(['/']);
         });
       }catch(e){
         console.log("error", e)
       }
-      
-
-
-
-      debugger;
-      
-      // try{
-      //   if(resbody.data && resbody.data.accessToken)
-      // {
-      //   this.toastr.success(resbody.message, 'Success');
-      //   this.router.navigate(['/']);
-      // }
-      // else if(resbody.data == null){
-      //   this.toastr.error(resbody.message, 'Error');
-      // }
-      // }catch(e){
-
-      // }
-      
     },(error)=>{
       this.processing =false;
       this.loginErr = error.error?.error;
       console.log(' loginErr',this.loginErr)
-      alert(this.loginErr.message);
-      this.toastr.error(this.loginErr.message, 'Alert');
+      let msg = this.loginErr && this.loginErr.message || 'somthing went wrong';
+      this.commonService.showSuccess('error','',msg)
     }
- 
     )}
 
   get getControls() {

@@ -10,20 +10,24 @@ export class CommonService {
   constructor(private confirmationService: ConfirmationService, private messageService: MessageService) {}
   
   handleApiResponse(response){
-    this.messageService.add({severity:'success', summary: 'Success', detail: 'Message Content'});
     return new Promise((resolve, reject)=>{
       try{
         debugger;
-        let code = response.code;
+        let code = response.code || 0;
         switch(code){
           case 200:
-            // this.showSuccess('success', '', response.message)
-            this.messageService.add({severity:'success', summary: 'Success', detail: 'Message Content'});
-            // resolve(response.data);
+            this.showSuccess('success', '', response.message)
+            resolve(response.data);
           break;
-          case '402':
+          case 402:
             this.showSuccess('error', '', response.message)
             reject();
+          break;  
+          default:
+              let msg = response.message || 'Somthin went wrong'
+              let title = code != 0 ? 'info' : 'error'
+              this.showSuccess(title, '', msg)
+              reject();  
           break;
         }
       }catch(e){

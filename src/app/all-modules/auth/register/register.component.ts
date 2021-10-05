@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService, CommonService } from 'src/app/services';
 import User from 'src/app/models/user';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -11,7 +12,8 @@ export class RegisterComponent implements OnInit {
   submited: boolean;
   registerForm: FormGroup;
   constructor(private fb: FormBuilder, private auth: AuthService,
-    private commonService: CommonService
+    private commonService: CommonService,
+    private router:Router
     ) { }
   ngOnInit(): void {
     // const pattern = "/^[0-9]*$/";
@@ -61,13 +63,21 @@ export class RegisterComponent implements OnInit {
     }
 
     console.log(formData);
-    this.auth.register(formData).subscribe((res: any) => {
-      console.log(res);
-      if (res.message === 'Success') {
-        // this.tostr.success('User registered successfully', 'Success');
-      } else {
-        // this.tostr.error('Something went wrong', 'Error');
+    this.auth.register(formData).subscribe((response: any) => {
+      console.log(response);
+      try{
+        this.commonService.handleApiResponse(response).then(res=>{
+          console.log(res);
+          this.router.navigate(['/auth/login']);
+        });
+      }catch(e){
+        console.log("error", e)
       }
+      // if (res.message === 'Success') {
+      //   // this.tostr.success('User registered successfully', 'Success');
+      // } else {
+      //   // this.tostr.error('Something went wrong', 'Error');
+      // }
     })
   }
 
