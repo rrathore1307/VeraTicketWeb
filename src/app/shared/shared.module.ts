@@ -3,15 +3,15 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { MessagesModule } from 'primeng/messages';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { ConfirmationService } from 'primeng/api';
-// import { CommonService } from '../services';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { CommonService } from '../services';
 import {InputTextModule} from 'primeng/inputtext';
 import {CheckboxModule} from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
 import {DropdownModule} from 'primeng/dropdown';
 import {CalendarModule} from 'primeng/calendar';
-import { ToastrModule } from 'ngx-toastr';
-
+import {ToastModule} from 'primeng/toast';
+import {RippleModule} from 'primeng/ripple';
 
 let imports = [
   ConfirmDialogModule,
@@ -22,7 +22,7 @@ let imports = [
   FormsModule,
   DropdownModule,
   CalendarModule,
-  ToastrModule
+  ToastModule
 ]
 if(isPlatformBrowser) {
   imports.push(ButtonModule)
@@ -32,6 +32,6 @@ if(isPlatformBrowser) {
   declarations: [],
   imports: imports,
   exports:  imports,
-  providers: [ConfirmationService],
+  providers: [ConfirmationService, CommonService, MessageService],
 })
 export class SharedModule { }

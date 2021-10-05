@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="page-content-wrapper">
+        <div class="user-profile-page">
+            <div class="grid">
+                <div class="col-3">
+                    <div class="section">
+                        <div class="side-nav">
+                            <ul class="nav">
+                                <li class="nav-item"><a routerLink="/user/profile" class="nav-link" [routerLinkActive]="['active']"><img src="../../../../assets/images/nav-profile.svg" alt="" />My Profile</a></li>
+                                <li class="nav-item"><a routerLink="/user/my-ticket" class="nav-link" [routerLinkActive]="['active']"><img src="../../../../assets/images/nav-ticket.svg" alt="" />My Tickets</a></li>
+                                <li class="nav-item"><a routerLink="/user/my-wallet" class="nav-link" [routerLinkActive]="['active']"><img src="../../../../assets/images/nav-wallet.svg" alt="" />My Wallet</a></li>
+                                <li class="nav-item"><a routerLink="/user/" class="nav-link"><img src="../../../../assets/images/nav-friend.svg" alt="" />My Friends</a></li>
+                                <li class="nav-item"><a routerLink="/user/" class="nav-link"><img src="../../../../assets/images/nav-help.svg" alt="" />Help & Support</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

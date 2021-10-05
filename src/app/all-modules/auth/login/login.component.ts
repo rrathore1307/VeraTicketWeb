@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services';
+import { AuthService, CommonService } from 'src/app/services';
 import { ToastrService } from 'ngx-toastr';
 import { Alert } from 'selenium-webdriver';
 
@@ -17,7 +17,12 @@ export class LoginComponent implements OnInit {
   loginForm:FormGroup;
   loginErr:any;
   
-  constructor(private fb:FormBuilder,private router:Router,private auth:AuthService,private toastr: ToastrService) { }
+  constructor(private fb:FormBuilder,private router:Router,private auth:AuthService,private toastr: ToastrService,
+    private commonService: CommonService) {
+      // if(this.auth.getToken()){
+      //   this.router.navigate(['/']);
+      // }
+     }
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       email:['',[Validators.required,Validators.email]],
@@ -25,8 +30,8 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  submit()
-  {
+  submit() {
+    // this.commonService.showSuccess('success', '', 'sss')
     this.processing= true;
     this.submited = true;
     this.loginErr=null;
@@ -37,26 +42,23 @@ export class LoginComponent implements OnInit {
       return false;
     }
  
-    this.auth.signIn(this.loginForm.value).subscribe((res:any)=>{
-      debugger;
+    this.auth.signIn(this.loginForm.value).subscribe(async(response:any)=>{
       this.processing = false;
-      console.log(res.data.accessToken);
-      if(res.data && res.data.accessToken)
-      {
-        this.toastr.success('Logged in successfully!', 'Success');
-        this.router.navigate(['/user/profile']);
-      }
-      else if(!res.data || res.data == null){
-        this.toastr.error('something went wrong!', 'Error');
+      try{
+        this.commonService.handleApiResponse(response).then(res=>{
+          console.log(res);
+          this.router.navigate(['/']);
+        });
+      }catch(e){
+        console.log("error", e)
       }
     },(error)=>{
       this.processing =false;
       this.loginErr = error.error?.error;
       console.log(' loginErr',this.loginErr)
-      alert(this.loginErr.message);
-      this.toastr.error(this.loginErr.message, 'Alert');
+      let msg = this.loginErr && this.loginErr.message || 'somthing went wrong';
+      this.commonService.showSuccess('error','',msg)
     }
- 
     )}
 
   get getControls() {
