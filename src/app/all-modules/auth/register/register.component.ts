@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/services';
-import { ToastrService } from 'ngx-toastr';
+import { AuthService, CommonService } from 'src/app/services';
 import User from 'src/app/models/user';
 @Component({
   selector: 'app-register',
@@ -11,7 +10,9 @@ import User from 'src/app/models/user';
 export class RegisterComponent implements OnInit {
   submited: boolean;
   registerForm: FormGroup;
-  constructor(private fb: FormBuilder, private auth: AuthService, private tostr: ToastrService) { }
+  constructor(private fb: FormBuilder, private auth: AuthService,
+    private commonService: CommonService
+    ) { }
   ngOnInit(): void {
     // const pattern = "/^[0-9]*$/";
     this.registerForm = this.fb.group({
@@ -29,6 +30,7 @@ export class RegisterComponent implements OnInit {
 
   submit() {
     this.submited = true;
+    // this.commonService.showSuccess();
     this.ConfirmPassErr = '';
     if (!this.registerForm.valid) {
       this.registerForm.markAllAsTouched();
@@ -62,9 +64,9 @@ export class RegisterComponent implements OnInit {
     this.auth.register(formData).subscribe((res: any) => {
       console.log(res);
       if (res.message === 'Success') {
-        this.tostr.success('User registered successfully', 'Success');
+        // this.tostr.success('User registered successfully', 'Success');
       } else {
-        this.tostr.error('Something went wrong', 'Error');
+        // this.tostr.error('Something went wrong', 'Error');
       }
     })
   }

@@ -3,13 +3,16 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { MessagesModule } from 'primeng/messages';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { ConfirmationService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { CommonService } from '../services';
 import {InputTextModule} from 'primeng/inputtext';
 import {CheckboxModule} from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
 import { CascadeSelectModule } from 'primeng/cascadeselect';
 import { ToastrModule } from 'ngx-toastr';
+import {ToastModule} from 'primeng/toast';
+import {RippleModule} from 'primeng/ripple';
+
 let imports = [
   ConfirmDialogModule,
   MessagesModule,
@@ -18,7 +21,9 @@ let imports = [
   CommonModule,
   FormsModule,
   CascadeSelectModule,
-  ToastrModule
+  ToastrModule,
+  ToastModule,
+  RippleModule
 ]
 if(isPlatformBrowser) {
   imports.push(ButtonModule)
@@ -28,6 +33,6 @@ if(isPlatformBrowser) {
   declarations: [],
   imports: imports,
   exports:  imports,
-  providers: [ConfirmationService],
+  providers: [ConfirmationService, CommonService, MessageService],
 })
 export class SharedModule { }

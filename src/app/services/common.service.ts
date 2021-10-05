@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {ConfirmationService, ConfirmEventType, MessageService} from 'primeng/api';
+import { PrimeNGConfig } from 'primeng/api';
 
 @Injectable({
   providedIn: 'root'
@@ -7,25 +8,31 @@ import {ConfirmationService, ConfirmEventType, MessageService} from 'primeng/api
 export class CommonService {
   // constructor(){}
   constructor(private confirmationService: ConfirmationService, private messageService: MessageService) {}
-
-  confirm1() {
-    this.confirmationService.confirm({
-        message: 'Are you sure that you want to proceed?',
-        header: 'Confirmation',
-        icon: 'pi pi-exclamation-triangle',
-        accept: () => {
-            this.messageService.add({severity:'info', summary:'Confirmed', detail:'You have accepted'});
-        },
-        reject: (type) => {
-            switch(type) {
-                case ConfirmEventType.REJECT:
-                    this.messageService.add({severity:'error', summary:'Rejected', detail:'You have rejected'});
-                break;
-                case ConfirmEventType.CANCEL:
-                    this.messageService.add({severity:'warn', summary:'Cancelled', detail:'You have cancelled'});
-                break;
-            }
+  
+  handleApiResponse(response){
+    this.messageService.add({severity:'success', summary: 'Success', detail: 'Message Content'});
+    return new Promise((resolve, reject)=>{
+      try{
+        debugger;
+        let code = response.code;
+        switch(code){
+          case 200:
+            // this.showSuccess('success', '', response.message)
+            this.messageService.add({severity:'success', summary: 'Success', detail: 'Message Content'});
+            // resolve(response.data);
+          break;
+          case '402':
+            this.showSuccess('error', '', response.message)
+            reject();
+          break;
         }
-    });
-}
+      }catch(e){
+
+      }
+    })
+  }
+  
+  showSuccess(severity, summary, detail) {
+    this.messageService.add({severity: severity, summary: summary, detail: detail});
+  }
 }

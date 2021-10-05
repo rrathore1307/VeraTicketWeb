@@ -3,3 +3,7 @@ export const Endpoints = {
     register: 'users/account',
     userdetail: 'users/me'
   };
+export const RESPONSE_CODE = {
+  SUCCESS: '200',
+  
+}  
