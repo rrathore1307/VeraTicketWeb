@@ -72,12 +72,14 @@ h1 {
   font-size: 36px;
   line-height: 45px;
   margin-bottom: 1rem;
+  color: $white-color;
 };
 h2 {
   font-family: $font-family-bold;
   font-weight: $font-weight;
   font-size: 30px;
   margin-bottom: 1rem;
+  color: $white-color;
 };
 h3 {
     font-family: $font-family-bold;
@@ -85,27 +87,33 @@ h3 {
     font-size: 24px;
     line-height: 30px;
     margin-bottom: 0.75rem;
+    color: $white-color;
 }
 h4 {
     font-family: $font-family-bold;
     font-size: 20px;
     line-height: 26px;
     margin-bottom: 0.75rem;
+    color: $white-color;
 }
 h5 {
     font-family: $font-family-md;
     font-size: 18px;
     line-height: 22px;
     margin-bottom: 0.75rem;
+    color: $white-color;
 }
 h6 {
   font-family: $font-family-md;
   font-size: 16px;
   margin-bottom: 0.5rem;
+  color: $white-color;
 }
 .small-text {
     @include small-text;
-    font-weight: bold;
+}
+.medium-text {
+    @include medium-text;
 }
 hr {
     width: 100%;
@@ -122,7 +130,7 @@ a.p-button {
     color: $white-color;
     text-decoration: none;
     padding: 0.5rem 1.5rem;
-    &:hover, &:active, &:focus {
+    &:enabled:hover, &:enabled:active, &:focus {
         box-shadow: unset;
         // opacity: 0.8;
     }
@@ -131,9 +139,22 @@ a.p-button {
 .p-primary .p-button {
     background-color: $primary-color;
     border-color: $primary-color;
+    color: $white-color;
     &:enabled:hover, &:enabled:active, &:focus {
         background-color: $primary-color;
         border-color: $primary-color;
+    }
+}
+.p-button.p-outline-primary,
+.p-outline-primary .p-button {
+    background-color: transparent;
+    border-color: $primary-color;
+    color: $primary-color;
+    &:enabled:hover, &:enabled:active, &:focus {
+        background-color: transparent;
+        border-color: $primary-color;
+        color: $primary-color;
+        opacity: 0.8;
     }
 }
 .p-button.p-secondary,
@@ -149,9 +170,11 @@ a.p-button {
 .p-outline-secondary .p-button {
     background-color: transparent;
     border-color: $white-color;
-    &:hover, &:active, &:focus {
+    color: $white-color;
+    &:enabled:hover, &:enabled:active, &:focus {
         background-color: transparent;
         border-color: $white-color;
+        opacity: 0.8;
     }
 }
 label {
@@ -264,5 +287,95 @@ input.p-inputtext {
     }
     .p-inputtext {
         padding-left: 78px;
+    }
+}
+.p-ng-tabview {
+    .p-tabview {
+        .p-tabview-nav {
+            background: transparent;
+            border-color: transparent;
+            li {
+                .p-tabview-nav-link {
+                    border: none;
+                    background-color: transparent;
+                    padding: 1rem 3rem;
+                    margin-right: 5px;
+                    @include normal-text;
+                    span {
+                        opacity: 0.4;
+                    }
+                    &:not(.p-disabled):focus {
+                        @include remove-default-focus-effect;
+                    }
+                }
+                &.p-highlight {
+                    .p-tabview-nav-link { 
+                        background: $dark-grey-color;
+                        color: $white-color;
+                        border-radius: 20px 20px 0px 0px;
+                        span {
+                            opacity: 1;
+                        }
+                    }
+                }
+                &:not(.p-highlight):not(.p-disabled):hover {
+                    .p-tabview-nav-link { 
+                        background: $dark-grey-color;
+                        color: $white-color;
+                        border-radius: 20px 20px 0px 0px;
+                    }
+                }   
+            }
+        }
+        .p-tabview-panels {
+            background-color: transparent;
+            padding: 0;
+            p-tabpanel:first-child {
+                .section {
+                    border-top-left-radius: 0;
+                }
+            }
+        }
+    }
+}
+.custom-checkbox-as-radio-view {
+    position: relative;
+    display: block;
+    min-height: 1.5rem;
+    input {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+        height: 18px;
+        width: 18px;
+        top: 0;
+        left: 0;
+        &:checked~.custom-radio::after {
+            position: absolute;
+            background-color: $blue-color;
+            width: 12px;
+            height: 12px;
+            border-radius: $border-radius-100;
+            top: 4px;
+            left: 4px;
+            display: block;
+            content: "";
+        }
+    }
+    .custom-radio {
+        display: inline-block;
+        opacity: 1;
+        &::before{
+            position: absolute;
+            display: block;
+            content: "";
+            background: transparent;
+            border-radius: $border-radius-100;
+            border: 1px solid $white-color;
+            height: 18px;
+            width: 18px;
+            top: 0;
+            left: 0;
+        }
     }
 }

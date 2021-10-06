@@ -1,3 +1,10 @@
+@mixin normal-text {
+    font-family: $font-family;
+    font-weight: 500;
+    font-size: $font-size;
+    line-height: 19px;
+    color: $white-color;
+}
 @mixin medium-text {
     font-family: $font-family;
     font-size: 14px;
