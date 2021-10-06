@@ -19,7 +19,7 @@ export class AppInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>,
             next: HttpHandler): Observable<HttpEvent<unknown>> {
-            this.auth.setHeader();
+            // let headers = this.auth.setHeader();
                         
             request = request.clone({headers:this.auth.headers});
             

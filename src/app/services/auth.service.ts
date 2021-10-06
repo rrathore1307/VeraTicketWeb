@@ -24,11 +24,16 @@ export class AuthService {
   {
     return this.api.post(this.endpoint.login,data)
   }
-  
+
+  // forgot password
+  forgotPassword(data) {
+    return this.api.patch(this.endpoint.forgotPassword,data)
+  }
+
   // logout and clear login user session
   logout() 
   {
-    // localStorage.removeItem('authtoken');
+    localStorage.removeItem('authtoken');
     this.route.navigate(['/auth/login']);
   }
 
@@ -61,6 +66,7 @@ export class AuthService {
     else{
       this.headers = new HttpHeaders({'Content-Type': 'application/json;'});
     }
+    return this.headers;
   }
 
   // check user is loggedInOr not

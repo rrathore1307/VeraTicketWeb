@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService, CommonService } from 'src/app/services';
-import { ToastrService } from 'ngx-toastr';
 import { Alert } from 'selenium-webdriver';
 
 @Component({
@@ -17,11 +16,11 @@ export class LoginComponent implements OnInit {
   loginForm:FormGroup;
   loginErr:any;
   
-  constructor(private fb:FormBuilder,private router:Router,private auth:AuthService,private toastr: ToastrService,
+  constructor(private fb:FormBuilder,private router:Router,private auth:AuthService,
     private commonService: CommonService) {
-      // if(this.auth.getToken()){
-      //   this.router.navigate(['/']);
-      // }
+      if(this.auth.getToken()){
+        this.router.navigate(['/user/profile']);
+      }
      }
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -47,7 +46,7 @@ export class LoginComponent implements OnInit {
       try{
         this.commonService.handleApiResponse(response).then(res=>{
           console.log(res);
-          this.router.navigate(['/']);
+          this.router.navigate(['/user/profile']);
         });
       }catch(e){
         console.log("error", e)

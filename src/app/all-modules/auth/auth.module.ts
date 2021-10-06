@@ -9,11 +9,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { AuthHomeComponent } from './auth-home/auth-home.component';
 
 
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, ForgotPassComponent, ResetPasswordComponent],
+  declarations: [LoginComponent, RegisterComponent, ForgotPassComponent, ResetPasswordComponent, AuthHomeComponent],
   imports: [
     ReactiveFormsModule,
     AuthRoutingModule,

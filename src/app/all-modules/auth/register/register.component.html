@@ -8,14 +8,14 @@
           <h3 class="form-title">Sign Up </h3>
           <form [formGroup]="registerForm" (ngSubmit)="submit()">
 
-            <div class="input-group">
+            <!-- <div class="input-group">
               <label>Select Role</label>
               <p-dropdown [options]="userRoles" class="p-ng-dropdown" formControlName="role" optionLabel="name" optionValue="code" placeholder="Select role">
               </p-dropdown>
               <div class="error-wrapper" *ngIf="submited && getControls.role.errors">
                 <div class="error" *ngIf="getControls.role.errors.required">Username is required.</div>
               </div>
-            </div>
+            </div> -->
 
             <div class="input-group">
               <label>Username</label>
@@ -69,8 +69,7 @@
                   {{ConfirmPassErr}}.</div>
               </div>
             </div>
-
-            <button pButton type="submit" label="Sign Up" class="p-primary submit-form-btn"></button>
+            <p-button type="submit" type="submit" label="Sign Up" class="p-primary submit-form-btn"></p-button>
           </form>
           <div class="or-seprator-line">
             <hr />

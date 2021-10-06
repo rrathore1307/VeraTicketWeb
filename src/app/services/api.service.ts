@@ -31,6 +31,12 @@ export class ApiService {
     return this.http.get(this.base_url+endpoint);
   }
 
+  patch(endpoint, req:any) {
+    let param = new HttpParams();
+    param = req;
+    return this.http.patch(this.base_url+endpoint, req);
+  }
+
   put(endpoint,req:any)
   {
     let param = new HttpParams();
