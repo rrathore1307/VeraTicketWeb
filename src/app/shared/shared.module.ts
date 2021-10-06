@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
 import { TabViewModule } from 'primeng/tabview';
+import {RadioButtonModule} from 'primeng/radiobutton';
 
 let imports = [
   ConfirmDialogModule,
@@ -21,7 +22,8 @@ let imports = [
   FormsModule,
   DropdownModule,
   CalendarModule,
-  TabViewModule
+  TabViewModule,
+  RadioButtonModule
 ]
 if(isPlatformBrowser) {
   imports.push(ButtonModule)

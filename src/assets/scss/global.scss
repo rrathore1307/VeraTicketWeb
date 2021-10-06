@@ -130,7 +130,7 @@ a.p-button {
     color: $white-color;
     text-decoration: none;
     padding: 0.5rem 1.5rem;
-    &:hover, &:active, &:focus {
+    &:enabled:hover, &:enabled:active, &:focus {
         box-shadow: unset;
         // opacity: 0.8;
     }
@@ -171,7 +171,7 @@ a.p-button {
     background-color: transparent;
     border-color: $white-color;
     color: $white-color;
-    &:hover, &:active, &:focus {
+    &:enabled:hover, &:enabled:active, &:focus {
         background-color: transparent;
         border-color: $white-color;
         opacity: 0.8;
@@ -335,6 +335,47 @@ input.p-inputtext {
                     border-top-left-radius: 0;
                 }
             }
+        }
+    }
+}
+.custom-checkbox-as-radio-view {
+    position: relative;
+    display: block;
+    min-height: 1.5rem;
+    input {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+        height: 18px;
+        width: 18px;
+        top: 0;
+        left: 0;
+        &:checked~.custom-radio::after {
+            position: absolute;
+            background-color: $blue-color;
+            width: 12px;
+            height: 12px;
+            border-radius: $border-radius-100;
+            top: 4px;
+            left: 4px;
+            display: block;
+            content: "";
+        }
+    }
+    .custom-radio {
+        display: inline-block;
+        opacity: 1;
+        &::before{
+            position: absolute;
+            display: block;
+            content: "";
+            background: transparent;
+            border-radius: $border-radius-100;
+            border: 1px solid $white-color;
+            height: 18px;
+            width: 18px;
+            top: 0;
+            left: 0;
         }
     }
 }
